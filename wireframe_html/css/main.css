@@ -70,6 +70,20 @@ body {
     background: #dddddc;
 }
 
+.sticky {
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:100;
+}
+
+.sticky-btn {
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:100;
+}
+
 nav {
     background-color: #4b8284;
 }
@@ -103,7 +117,6 @@ nav ul img {
     padding: 0.938em;
 }
 
-.navWrapper {}
 
 .paddingless {
     padding: 0 !important;
@@ -113,6 +126,7 @@ nav ul img {
     padding: 0.625em;
     max-width: 85.375em;
     margin: 0 auto;
+    margin-top: 5em;
 }
 
 .clear {
@@ -131,6 +145,9 @@ nav ul img {
     .two-thirds {
         width: 61%;
         float: left;
+    }
+    .profilewrapper {
+        width: 100%;
     }
 }
 
@@ -153,6 +170,46 @@ figure img {
 
 .container section p {
     overflow: hidden;
+}
+
+.text-align-center {
+    text-align: center;
+}
+
+.profilewrapper {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.profile-img-size {
+    width: 50%;
+}
+
+.green-button {
+    background-color: #4a7e84;
+    border: none;
+    font-family: Arial;
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 0.625em;
+    font-size: 0.75em;
+}
+
+.centering-wrapper {
+    max-width: 70%;
+    /*min-width: 50%;*/
+    text-align: center;
+    margin: 0 auto;
+}
+
+.marginless {
+    margin: 0;
+}
+
+.centering-wrapper img {
+    max-width: 100%;
+    width: auto;
 }
 
 footer {
