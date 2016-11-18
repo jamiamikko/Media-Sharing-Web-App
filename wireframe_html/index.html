@@ -16,9 +16,19 @@
 <body>
     <header class="sticky">
         <nav class="clear">
-            <div class="navWrapper">
-                <ul>
+            <div class="nav-wrapper">
+                <div class="mobi-nav">
                     <a href="index.html" class="svg">
+                        <object data="img/logo.svg" class="svg-logo" type="image/svg+xml">
+                            <img src="img/logo.png" />
+                        </object>
+                    </a>
+                    <a class="mobi-button" onclick="menuScroll()">
+                        &#9776;
+                    </a>
+                </div>
+                <ul class="desktop-nav" id="main-nav">
+                    <a href="index.html" class="svg mobile">
                         <object data="img/logo.svg" class="svg-logo" type="image/svg+xml">
                             <img src="img/logo.png" />
                         </object>
@@ -32,9 +42,6 @@
                     <a href="#">
                         <li>New post</li>
                     </a>
-                    <!-- <a href="#">
-                    <button>Login/Sign up</button>
-                </a> -->
                 </ul>
             </div>
         </nav>
@@ -98,6 +105,13 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script>
     window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')
+    </script>
+    <script>
+    function menuScroll() {
+        var nav = document.getElementById("main-nav");
+
+        nav.style.display = nav.style.display === 'block' ? '' : 'block';
+    }
     </script>
     <script src="js/main.js"></script>
 </body>

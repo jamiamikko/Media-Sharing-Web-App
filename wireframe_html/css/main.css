@@ -71,52 +71,32 @@ body {
 }
 
 .sticky {
-    position:fixed;
-    top:0;
-    width:100%;
-    z-index:100;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
 }
 
 .sticky-btn {
-    position:fixed;
-    top:0;
-    width:100%;
-    z-index:100;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+header {
+    background-color: #4b8284;
 }
 
 nav {
-    background-color: #4b8284;
+    -webkit-box-shadow: 0px 3px 10px 1px rgba(163, 163, 163, 1);
+    -moz-box-shadow: 0px 3px 10px 1px rgba(163, 163, 163, 1);
+    box-shadow: 0px 3px 10px 1px rgba(163, 163, 163, 1);
 }
 
 a {
     text-decoration: none;
 }
-
-nav ul {
-    list-style: none;
-    display: flex;
-    margin: 0 auto;
-    max-width: 85.375em;
-    height: 5em;
-}
-
-nav ul a li {
-    color: white;
-    height: 2.188em;
-    padding: 1.875em 0.625em 0.938em 0.625em;
-}
-
-nav ul a li:hover {
-    background-color: white;
-    color: #4b8284;
-    height: 2.188em;
-    padding: 1.875em 0.625em 0.938em 0.625em;
-}
-
-nav ul img {
-    padding: 0.938em;
-}
-
 
 .paddingless {
     padding: 0 !important;
@@ -133,7 +113,43 @@ nav ul img {
     clear: both;
 }
 
+.mobile {
+    display: none !important;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0 auto;
+    max-width: 85.375em;
+}
+
+
+/* Desktop view */
+
 @media screen and (min-width: 768px) {
+    .mobi-nav {
+        padding-left: 2.5em;
+        display: none;
+    }
+    nav ul {
+        display: flex;
+        height: 5em;
+        background-color: #4b8284;
+    }
+    nav ul a li {
+        color: white;
+        height: 2.188em;
+        padding: 1.875em 0.625em 0.938em 0.625em;
+    }
+    nav ul a li:hover {
+        background-color: white;
+        color: #4b8284;
+        height: 2.188em;
+        padding: 1.875em 0.625em 0.938em 0.625em;
+    }
+    nav ul img {
+        padding: 0.938em;
+    }
     .half {
         width: 49%;
         float: left;
@@ -148,6 +164,60 @@ nav ul img {
     }
     .profilewrapper {
         width: 100%;
+    }
+    .mobile {
+        display: block !important;
+    }
+}
+
+
+/* Mobile view */
+
+@media screen and (max-width: 768px) {
+    nav ul {
+        display: none;
+        height: 100%;
+        text-align: center;
+        padding: 0;
+        background-color: #28616d;
+    }
+    nav ul a li {
+        color: white;
+        height: 2.188em;
+        padding: 1em 0 0.5em 0;
+    }
+    nav ul a li:hover {
+        background-color: white;
+        color: #4b8284;
+        height: 2.188em;
+        padding: 1em 0 0.5em 0;
+    }
+    .mobi-nav {
+        padding-left: 2.5em;
+        padding-bottom: 0.5em;
+        padding: 0 0 0.5em;
+    }
+    .mobi-button {
+        float: right;
+        font-size: 1.5em;
+        color: white;
+        padding: 1em 1em 0 0;
+        cursor: pointer
+    }
+    .mobi-button:active {
+        float: right;
+        font-size: 1.5em;
+        color: #4b8284;
+        padding: 1em 1em 0 0;
+        cursor: pointer
+    }
+    a.svg {
+        position: relative;
+        display: inline-block;
+        margin-left: 2.5em;
+    }
+    aside {
+        display: none;
     }
 }
 
