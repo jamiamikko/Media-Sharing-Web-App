@@ -166,8 +166,19 @@ figure img {
 }
 
 .profilewrapper{
-	width: 75%;
+	width: 60%;
 	margin: 0 auto;
+}
+
+.green-button{
+    background-color: #4a7e84;
+    border: none;
+    font-family: Arial;
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 0.625em;
+    font-size: 0.75em;
 }
 
 .centering-wrapper{
