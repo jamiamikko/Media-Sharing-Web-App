@@ -181,6 +181,46 @@ a.svg:after {
     left: 0;
 }
 
+.landing_page_main {
+	width: 100vw;
+	height: 100vh;
+	background-image: url("../img/background.svg");
+	display: flex;
+	align-items: center;
+	justify-content; center;
+	flex-direction: column;
+}
+
+.logo {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 10%;
+}
+
+.button{
+	margin: 0.5em;
+	-webkit-border-radius: 18;
+	-moz-border-radius: 18;
+	border-radius: 18px;
+	text-shadow: 4px 2px 10px #050505;
+	-webkit-box-shadow: 4px 3px 9px #666666;
+	-moz-box-shadow: 4px 3px 9px #666666;
+	box-shadow: 4px 3px 9px #666666;
+	font-family: Arial;
+	color: #ffffff;
+	font-size: 28px;
+	background: #C2345F;
+	padding: 10px 20px 10px 20px;
+	border: solid #000000 2px;
+	text-decoration: none;
+}
+
+.button:hover {
+	background: #403e40;
+	text-decoration: none;
+}
+
+
 
 /* ==========================================================================
    Media Queries
