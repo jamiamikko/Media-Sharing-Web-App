@@ -47,8 +47,9 @@
         </nav>
     </header>
     <section class="clear wrapper">
-        <aside class="third container">
-            <img src="" alt="Image">
+        <aside class="third container text-align-center">
+            <object class="profile-img-size" data="img/profile-icon.svg" type="image/svg+xml">
+            </object>
             <h2>Profile heading</h2>
             <p>Profile description</p>
         </aside>
@@ -111,7 +112,7 @@
         var div = document.getElementById("main-nav");
 
         var className = div.getAttribute("class");
-        
+
         if (className == "main-nav") {
             div.className += " active";
         } else {
