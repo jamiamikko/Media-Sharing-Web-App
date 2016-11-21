@@ -70,42 +70,33 @@ body {
     background: #dddddc;
 }
 
-nav {
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+.sticky-btn {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+header {
     background-color: #4b8284;
+}
+
+nav {
+    -webkit-box-shadow: 0px 3px 10px 1px rgba(163, 163, 163, 1);
+    -moz-box-shadow: 0px 3px 10px 1px rgba(163, 163, 163, 1);
+    box-shadow: 0px 3px 10px 1px rgba(163, 163, 163, 1);
 }
 
 a {
     text-decoration: none;
 }
-
-nav ul {
-    list-style: none;
-    display: flex;
-    margin: 0 auto;
-    max-width: 85.375em;
-    height: 5em;
-}
-
-nav ul a li {
-    color: white;
-    height: 2.188em;
-    padding: 1.875em 0.625em 0.938em 0.625em;
-}
-
-nav ul a li:hover {
-    background-color: white;
-    color: #4b8284;
-    height: 2.188em;
-    padding: 1.875em 0.625em 0.938em 0.625em;
-}
-
-nav ul img {
-    padding: 0.938em;
-}
-
-
-
-.navWrapper {}
 
 .paddingless {
     padding: 0 !important;
@@ -115,28 +106,110 @@ nav ul img {
     padding: 0.625em;
     max-width: 85.375em;
     margin: 0 auto;
+    margin-top: 5em;
 }
 
 .clear {
     clear: both;
 }
 
+nav ul {
+    list-style: none;
+    margin: 0 auto;
+    max-width: 85.375em;
+}
+
+
+/* Desktop view */
+
 @media screen and (min-width: 768px) {
-    .half {
-        width: 49%;
-        float: left;
+    .mobi-nav {
+        padding-left: 2.5em;
+        display: none;
     }
-    .third {
-        width: 30%;
-        float: left;
+    nav ul {
+        display: flex;
+        height: 5em;
+        background-color: #4b8284;
     }
-    .two-thirds {
-        width: 61%;
-        float: left;
+    nav ul a li {
+        color: white;
+        height: 2.188em;
+        padding: 1.875em 0.625em 0.938em 0.625em;
     }
-	.profilewrapper{
-		width: 100%;
-	}	
+    nav ul a li:hover {
+        background-color: white;
+        color: #4b8284;
+        height: 2.188em;
+        padding: 1.875em 0.625em 0.938em 0.625em;
+    }
+    nav ul img {
+        padding: 0.938em;
+    }
+    .profilewrapper {
+        width: 100%;
+    }
+    .mobile {
+        display: block !important;
+    }
+}
+
+
+/* Mobile view */
+
+@media screen and (max-width: 768px) {
+    ul.main-nav {
+        text-align: center;
+        padding: 0;
+        background-color: #28616d;
+        transition: opacity 1s ease-out;
+        opacity: 0;
+        height: 0;
+        overflow: hidden;
+    }
+    ul.main-nav.active {
+        opacity: 1;
+        height: auto;
+        transition: opacity 1s ease-out;
+    }
+    ul.main-nav a li {
+        color: white;
+        height: 2.188em;
+        padding: 1em 0 0.5em 0;
+    }
+    ul.main-nav a li:hover {
+        background-color: white;
+        color: #4b8284;
+        height: 2.188em;
+        padding: 1em 0 0.5em 0;
+    }
+    .mobi-nav {
+        padding-left: 2.5em;
+        padding-bottom: 0.5em;
+        padding: 0 0 0.5em;
+    }
+    .mobi-button {
+        float: right;
+        font-size: 1.5em;
+        color: white;
+        padding: 1em 1em 0 0;
+        cursor: pointer
+    }
+    .mobi-button:active {
+        float: right;
+        font-size: 1.5em;
+        color: #28616d;
+        padding: 1em 1em 0 0;
+        cursor: pointer
+    }
+    a.svg {
+        position: relative;
+        display: inline-block;
+        margin-left: 2.5em;
+    }
+    aside {
+        display: none;
+    }
 }
 
 figure img {
@@ -145,7 +218,6 @@ figure img {
     margin-top: 1em;
     margin-bottom: 1em;
 }
-
 
 .container {
     border: #AAAAAA 1px solid;
@@ -161,20 +233,20 @@ figure img {
     overflow: hidden;
 }
 
-.text-align-center{
+.text-align-center {
     text-align: center;
 }
 
-.profilewrapper{
-	width: 60%;
-	margin: 0 auto;
+.profilewrapper {
+    width: 60%;
+    margin: 0 auto;
 }
 
-.profile-img-size{
+.profile-img-size {
     width: 50%;
 }
 
-.green-button{
+.green-button {
     background-color: #4a7e84;
     border: none;
     font-family: Arial;
@@ -185,19 +257,23 @@ figure img {
     font-size: 0.75em;
 }
 
-.centering-wrapper{
-	max-width: 70%;
-	/*min-width: 50%;*/
-	text-align: center;
-	margin: 0 auto;
-}
-
-.marginless{
+.marginless {
     margin: 0;
 }
 
-.centering-wrapper img{
-	max-width: 100%;
+.centering-wrapper {
+    max-width: 70%;
+    /*min-width: 50%;*/
+    text-align: center;
+    margin: 0 auto;
+}
+
+.marginless {
+    margin: 0;
+}
+
+.centering-wrapper img {
+    max-width: 100%;
     width: auto;
 }
 
