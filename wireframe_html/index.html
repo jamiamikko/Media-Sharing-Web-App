@@ -23,11 +23,11 @@
                             <img src="img/logo.png" />
                         </object>
                     </a>
-                    <a class="mobi-button" onclick="menuScroll()">
+                    <a class="mobi-button" onclick="menuToggle()">
                         &#9776;
                     </a>
                 </div>
-                <ul class="desktop-nav" id="main-nav">
+                <ul class="main-nav" id="main-nav">
                     <a href="index.html" class="svg mobile">
                         <object data="img/logo.svg" class="svg-logo" type="image/svg+xml">
                             <img src="img/logo.png" />
@@ -107,10 +107,16 @@
     window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')
     </script>
     <script>
-    function menuScroll() {
-        var nav = document.getElementById("main-nav");
+    function menuToggle() {
+        var div = document.getElementById("main-nav");
 
-        nav.style.display = nav.style.display === 'block' ? '' : 'block';
+        var className = div.getAttribute("class");
+        
+        if (className == "main-nav") {
+            div.className += " active";
+        } else {
+            div.className = "main-nav";
+        }
     }
     </script>
     <script src="js/main.js"></script>

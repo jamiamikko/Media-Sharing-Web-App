@@ -174,19 +174,26 @@ nav ul {
 /* Mobile view */
 
 @media screen and (max-width: 768px) {
-    nav ul {
-        display: none;
-        height: 100%;
+    ul.main-nav {
         text-align: center;
         padding: 0;
         background-color: #28616d;
+        transition: opacity 1s ease-out;
+        opacity: 0;
+        height: 0;
+        overflow: hidden;
     }
-    nav ul a li {
+    ul.main-nav.active {
+        opacity: 1;
+        height: auto;
+        transition: opacity 1s ease-out;
+    }
+    ul.main-nav a li {
         color: white;
         height: 2.188em;
         padding: 1em 0 0.5em 0;
     }
-    nav ul a li:hover {
+    ul.main-nav a li:hover {
         background-color: white;
         color: #4b8284;
         height: 2.188em;
@@ -204,10 +211,11 @@ nav ul {
         padding: 1em 1em 0 0;
         cursor: pointer
     }
+    
     .mobi-button:active {
         float: right;
         font-size: 1.5em;
-        color: #4b8284;
+        color: #28616d;
         padding: 1em 1em 0 0;
         cursor: pointer
     }
