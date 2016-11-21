@@ -14,27 +14,34 @@
 </head>
 
 <body>
-    <header>
+    <header class="sticky">
         <nav class="clear">
-            <div class="navWrapper">
-                <ul>
+            <div class="nav-wrapper">
+                <div class="mobi-nav">
                     <a href="index.html" class="svg">
                         <object data="img/logo.svg" class="svg-logo" type="image/svg+xml">
                             <img src="img/logo.png" />
                         </object>
                     </a>
-                    <a href="index.html">
-                        <li>Main Page</li>
+                    <a class="mobi-button" onclick="menuToggle()">
+                        &#9776;
+                    </a>
+                </div>
+                <ul class="main-nav" id="main-nav">
+                    <a href="index.html" class="svg mobile">
+                        <object data="img/logo.svg" class="svg-logo" type="image/svg+xml">
+                            <img src="img/logo.png" />
+                        </object>
                     </a>
                     <a href="profilepage.html">
                         <li>Profile</li>
                     </a>
-                    <a href="#">
-                        <li>Menu item 3</li>
+                    <a href="statisticspage.html">
+                        <li>Statistics</li>
                     </a>
-                    <!-- <a href="#">
-                    <button>Login/Sign up</button>
-                </a> -->
+                    <a href="#">
+                        <li>New post</li>
+                    </a>
                 </ul>
             </div>
         </nav>
@@ -42,14 +49,17 @@
     <section class="clear wrapper">
         <main class="container text-align-center profilewrapper">
             <div class="centering-wrapper">
-            <h1>STATISTICS</h1>
-            <h3 class="marginless">Total posts</h3>
-            <h4 class="marginless">###</h4><br>
-            <h3 class="marginless">Most active User</h3>
-            <h4 class="marginless">Person Random</h4><br>
-            <h3 class="marginless">Most popular tag</h3>
-            <h4 class="marginless">#Java</h4><br>
-			</div>
+                <h1>Statistics</h1>
+                <h3 class="marginless">Total posts</h3>
+                <h4 class="marginless">###</h4>
+                <br>
+                <h3 class="marginless">Most active User</h3>
+                <h4 class="marginless">Person Random</h4>
+                <br>
+                <h3 class="marginless">Most popular tag</h3>
+                <h4 class="marginless">#Java</h4>
+                <br>
+            </div>
         </main>
     </section>
     <footer class="clear">
@@ -58,6 +68,19 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script>
     window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')
+    </script>
+    <script>
+    function menuToggle() {
+        var div = document.getElementById("main-nav");
+
+        var className = div.getAttribute("class");
+
+        if (className == "main-nav") {
+            div.className += " active";
+        } else {
+            div.className = "main-nav";
+        }
+    }
     </script>
     <script src="js/main.js"></script>
 </body>

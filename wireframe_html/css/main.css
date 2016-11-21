@@ -18,9 +18,9 @@ html {
 
 hr {
     display: block;
-    height: 1px;
+    height: 0.063em;
     border: 0;
-    border-top: 1px solid #ccc;
+    border-top: 0.063em solid #ccc;
     margin: 1em 0;
     padding: 0;
 }
@@ -89,9 +89,9 @@ header {
 }
 
 nav {
-    -webkit-box-shadow: 0px 3px 10px 1px rgba(163, 163, 163, 1);
-    -moz-box-shadow: 0px 3px 10px 1px rgba(163, 163, 163, 1);
-    box-shadow: 0px 3px 10px 1px rgba(163, 163, 163, 1);
+    -webkit-box-shadow: 0px 0.188em 0.625em 0.063em rgba(163, 163, 163, 1);
+    -moz-box-shadow: 0px 0.188em 0.625em 0.063em rgba(163, 163, 163, 1);
+    box-shadow: 0px 0.188em 0.625em 0.063em rgba(163, 163, 163, 1);
 }
 
 a {
@@ -111,6 +111,10 @@ a {
 
 .clear {
     clear: both;
+}
+
+.mobile {
+    display: none !important;
 }
 
 nav ul {
@@ -145,6 +149,18 @@ nav ul {
     }
     nav ul img {
         padding: 0.938em;
+    }
+    .half {
+        width: 49%;
+        float: left;
+    }
+    .third {
+        width: 30%;
+        float: left;
+    }
+    .two-thirds {
+        width: 61%;
+        float: left;
     }
     .profilewrapper {
         width: 100%;
@@ -220,7 +236,7 @@ figure img {
 }
 
 .container {
-    border: #AAAAAA 1px solid;
+    border: #AAAAAA 0.063em solid;
     background-color: #FFF;
     margin: 0.625em;
     -webkit-box-shadow: 0em 0.625em 1.563em 0.188em rgba(133, 133, 133, 0.61);
@@ -263,7 +279,6 @@ figure img {
 
 .centering-wrapper {
     max-width: 70%;
-    /*min-width: 50%;*/
     text-align: center;
     margin: 0 auto;
 }
@@ -284,7 +299,6 @@ footer {
 
 .svg-logo {
     height: 50px;
-    width: 71px;
     margin-top: 1em;
     margin-right: 2em;
 }
@@ -328,12 +342,12 @@ a.svg:after {
 .visuallyhidden {
     border: 0;
     clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
+    height: 0.063em;
+    margin: -0.063em;
     overflow: hidden;
     padding: 0;
     position: absolute;
-    width: 1px;
+    width: 0.063em;
 }
 
 .visuallyhidden.focusable:active,
@@ -394,7 +408,7 @@ a.svg:after {
     }
     pre,
     blockquote {
-        border: 1px solid #999;
+        border: 0.063em solid #999;
         page-break-inside: avoid;
     }
     thead {
