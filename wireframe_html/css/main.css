@@ -162,7 +162,7 @@ nav ul {
         width: 61%;
         float: left;
     }
-    .profilewrapper {
+    .profile-wrapper {
         width: 100%;
     }
     .mobile {
@@ -253,7 +253,7 @@ figure img {
     text-align: center;
 }
 
-.profilewrapper {
+.profile-wrapper {
     width: 60%;
     margin: 0 auto;
 }
