@@ -65,7 +65,7 @@
                         <p>A comment aasdasdas dasda sdadas dadsaddasdas dasdasdasdasdas dasdasdassd asdsadassda sdasdasdasdas adlasd asjkasd sdhkaj hasdhsajkdh dsjashdaks jhdkjasd adasdhasi dhaskdashd daskjdhasjd dshahdjakshdj dahdashdas sdhakjsdas </p>
                     </section>
                     <section class="comments">
-                        <p><a href="#">View comments</a></p>
+                        <p><a class="view-comment">View comments</a></p>
                         <div class="old-comments hidden">
                             <p>Heheh</p>
                             <p>Heheh</p>
@@ -91,7 +91,7 @@
                         <p>A comment aasdasdas dasda sdadas dadsaddasdas dasdasdasdasdas dasdasdassd asdsadassda sdasdasdasdas adlasd asjkasd sdhkaj hasdhsajkdh dsjashdaks jhdkjasd adasdhasi dhaskdashd daskjdhasjd dshahdjakshdj dahdashdas sdhakjsdas </p>
                     </section>
                     <section class="comments">
-                        <p><a href="#">View comments</a></p>
+                        <p><a class="view-comment">View comments</a></p>
                         <div class="old-comments hidden">
                             <p>Heheh</p>
                             <p>Heheh</p>
@@ -117,7 +117,7 @@
                         <p>A comment aasdasdas dasda sdadas dadsaddasdas dasdasdasdasdas dasdasdassd asdsadassda sdasdasdasdas adlasd asjkasd sdhkaj hasdhsajkdh dsjashdaks jhdkjasd adasdhasi dhaskdashd daskjdhasjd dshahdjakshdj dahdashdas sdhakjsdas </p>
                     </section>
                     <section class="comments">
-                        <p><a href="#">View comments</a></p>
+                        <p><a class="view-comment">View comments</a></p>
                         <div class="old-comments hidden">
                             <p>Heheh</p>
                             <p>Heheh</p>
@@ -143,7 +143,7 @@
                         <p>A comment aasdasdas dasda sdadas dadsaddasdas dasdasdasdasdas dasdasdassd asdsadassda sdasdasdasdas adlasd asjkasd sdhkaj hasdhsajkdh dsjashdaks jhdkjasd adasdhasi dhaskdashd daskjdhasjd dshahdjakshdj dahdashdas sdhakjsdas </p>
                     </section>
                     <section class="comments">
-                        <p><a href="#">View comments</a></p>
+                        <p><a class="view-comment">View comments</a></p>
                         <div class="old-comments hidden">
                             <p>Heheh</p>
                             <p>Heheh</p>
@@ -178,6 +178,31 @@
         } else {
             div.className = "main-nav";
         }
+    }
+
+    var comments = document.querySelectorAll(".comments");
+
+    var showComments = function(element) {
+        if (element.target.getAttribute("class") == "view-comment") {
+
+
+            var hiddenComments = element.path[2].querySelector(".old-comments");
+
+            var className = hiddenComments.getAttribute("class");
+
+            if (className == "old-comments hidden") {
+                hiddenComments.className = 'old-comments';
+                element.target.innerHTML = "Hide comments";
+            } else {
+                hiddenComments.className += ' hidden';
+                element.target.innerHTML = "View comments";
+            }
+        }
+
+    }
+
+    for (var i = 0; i < comments.length; i++) {
+        comments[i].addEventListener("click", showComments);;
     }
     </script>
     <script src="js/main.js"></script>
