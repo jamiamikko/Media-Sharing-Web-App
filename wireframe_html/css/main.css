@@ -140,9 +140,18 @@ a.view-comment:active {
 }
 
 .old-comments p {
-    background: rgb(247, 247, 247);
+    background: rgb(238, 246, 247);
     padding: 1em;
-    margin-bottom: 0.1em;
+    margin-bottom: 0.3em;
+    margin-top: 0em;
+}
+
+.comments button {
+    float: right;
+}
+
+.comments textarea {
+    width: 25em;
 }
 
 
