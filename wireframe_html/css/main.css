@@ -123,6 +123,28 @@ nav ul {
     max-width: 85.375em;
 }
 
+a.view-comment {
+    color: #4b8284;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+a.view-comment:active {
+    color: #4b8284;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.old-comments {
+    margin-bottom: 1em;
+}
+
+.old-comments p {
+    background: rgb(247, 247, 247);
+    padding: 1em;
+    margin-bottom: 0.1em;
+}
+
 
 /* Desktop view */
 
