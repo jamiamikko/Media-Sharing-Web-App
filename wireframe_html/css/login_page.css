@@ -184,3 +184,16 @@ form span {
 footer {
     color: white;
 }
+
+a.svg {
+    position: relative;
+}
+
+a.svg:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
