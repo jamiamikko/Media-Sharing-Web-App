@@ -271,6 +271,14 @@ nav ul {
         display: inline-block;
         margin-left: 2em;
     }
+    a.svg:after{
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
     aside {
         display: none;
     }
