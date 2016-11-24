@@ -13,22 +13,17 @@
     <link rel="stylesheet" href="css/login_page.css">
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
-<!--Background take up the whole screen-->
-
 <body>
-    <!--Main element possition center of the whole screen-->
     <main>
-        <!--Logo that link to main page-->
         <section>
             <a href="index.html" class="svg">
                 <object data="img/logo.svg" type="image/svg+xml">
-                    <img src="img/logo.png" />
+                    <img src="img/logo.png" alt="Codebox logo" />
                 </object>
             </a>
         </section>
-        <!--Button and form for login-->
         <button class="red-button" id="login_button" type="submit" form="login" name="login">LOGIN</button>
-        <form class="" id="login" action="" method="post">
+        <form id="login" method="post">
             <span>User Name:</span>
             <input type="text" name="username" maxlength="20" required>
             <span>Password:</span>
@@ -36,9 +31,8 @@
             <br/>
             <button type="submit" class="green-button" name="Submit">Submit</button>
         </form>
-        <!--Button and form for sign up-->
         <button class="red-button" id="signup_button" type="submit" form="signup" name="signup">SIGN UP</button>
-        <form class="" id="signup" action="" method="post">
+        <form id="signup" method="post">
             <span>User Name:</span>
             <input type="text" name="username" maxlength="20" required>
             <span>Password:</span>

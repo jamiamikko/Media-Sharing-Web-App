@@ -117,12 +117,6 @@ a {
     display: none !important;
 }
 
-nav ul {
-    list-style: none;
-    margin: 0 auto;
-    max-width: 85.375em;
-}
-
 a.view-comment {
     color: #4b8284;
     cursor: pointer;
@@ -154,6 +148,13 @@ a.view-comment:active {
     width: 70%;
 }
 
+nav ul {
+    list-style: none;
+    margin: 0 auto;
+    max-width: 85.375em;
+    padding: 0;
+}
+
 
 /* Desktop view */
 
@@ -167,19 +168,33 @@ a.view-comment:active {
         height: 5em;
         background-color: #4b8284;
     }
-    nav ul a li {
-        color: white;
+    nav ul li a.navi-item {
+        display: block;
         height: 2.188em;
         padding: 1.875em 0.625em 0.938em 0.625em;
+        color: white;
     }
-    nav ul a li:hover {
+    nav ul li a.navi-item:hover {
+        height: 2.188em;
+        padding: 1.875em 0.625em 0.938em 0.625em;
         background-color: white;
         color: #4b8284;
-        height: 2.188em;
-        padding: 1.875em 0.625em 0.938em 0.625em;
     }
     nav ul img {
         padding: 0.938em;
+    }
+    nav ul li a.svg {
+        position: relative;
+        display: inline-block;
+        padding: 0em 2em;
+    }
+    nav ul li a.svg:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
     }
     .half {
         width: 49%;
@@ -219,12 +234,14 @@ a.view-comment:active {
         height: auto;
         transition: opacity 1s ease-out;
     }
-    ul.main-nav a li {
+
+    ul.main-nav li a {
+        display: block;
         color: white;
         height: 2.188em;
         padding: 1em 0 0.5em 0;
     }
-    ul.main-nav a li:hover {
+    ul.main-nav li a:hover {
         background-color: white;
         color: #4b8284;
         height: 2.188em;
@@ -252,7 +269,7 @@ a.view-comment:active {
     a.svg {
         position: relative;
         display: inline-block;
-        margin-left: 2.5em;
+        margin-left: 2em;
     }
     aside {
         display: none;
@@ -332,20 +349,6 @@ footer {
     height: 50px;
     margin-top: 1em;
     margin-right: 2em;
-}
-
-a.svg {
-    position: relative;
-    display: inline-block;
-}
-
-a.svg:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
 }
 
 
