@@ -1,0 +1,10 @@
+/**
+ Export to JSON plugin for PHPMyAdmin
+ @version 4.6.4
+ */
+
+// Database 'mikkojam'
+
+// mikkojam.Usr
+
+[{"ID":"1","PRIVILEGE":"0","UserName":"mikkoJ","Passwd":"salasana"}, {"ID":"2","PRIVILEGE":"0","UserName":"testikayttis","Passwd":"salasana1"}]
