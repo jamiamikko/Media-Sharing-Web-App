@@ -61,7 +61,7 @@ function getJson() {
 
     var xhr = new XMLHttpRequest();
 
-    xhr.open("GET", "json/Img.json", true);
+    xhr.open("GET", "http://10.114.32.46:8080/SchoolProject/webresources/generic/getData", true);
 
     xhr.onreadystatechange = showImages;
 
