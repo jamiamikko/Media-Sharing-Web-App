@@ -47,7 +47,7 @@ var showImages = function() {
         var output = '';
 
         for (i = 0; i < jsonObject.length; i++) {
-            output += '<section class="container"><article><figure><img src = "' + jsonObject[i].URL + '"alt = "' + jsonObject[i].UNAME + '"><figcaption> ' + jsonObject[i].Description + ' </figcaption> </figure> <section class = "comments"><p> <a class = "view-comment" onclick="menuToggle()"> View comments </a></p><div class = "old-comments hidden"><p> <span> {writer}: </span>Heheh</p><p> <span> {writer}: </span>Heheh</p><p> <span> {writer}: </span>Heheh</p></div> <form><div class = "new-comment"><textarea placeholder = "Write comment"> </textarea> <button type = "submit"class = "green-button"> Send </button> </div> </form> </section> </article> </section>';
+            output += '<section class="container"><article id="' + jsonObject[i].ID + '"><figure><img src = "' + jsonObject[i].URL + '"alt = "' + jsonObject[i].UNAME + '"><figcaption> ' + jsonObject[i].Description + ' </figcaption> </figure> <section class = "comments"><p> <a class = "view-comment" onclick="showComments()"> View comments </a></p><div class = "old-comments hidden"><p> <span> {writer}: </span>Heheh</p><p> <span> {writer}: </span>Heheh</p><p> <span> {writer}: </span>Heheh</p></div> <form><div class = "new-comment"><textarea placeholder = "Write comment"> </textarea> <button type = "submit"class = "green-button"> Send </button> </div> </form> </section> </article> </section>';
         }
 
         document.querySelector("main").innerHTML = output;
@@ -56,16 +56,40 @@ var showImages = function() {
     main();
 }
 
+var loadComments = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        var jsonObject = JSON.parse(this.responseText);
+        var output = '';
+
+        var articles = document.querySelectorAll('article');
+
+        for (k = 0; k < articles.length; k++) {
+
+            for (i = 0; i < jsonObject.length; i++) {
+
+                if (jsonObject[i].id == articles[k].getAttribute('ID')) {
+
+                    articles[k].querySelector('.old-comments').innerHTML = '<p> <span> ' + jsonObject[i].owner +': </span>' + jsonObject[i].content + '</p>';
+                }
+            }
+        }
+    }
+}
+
 
 function getJson() {
 
     var xhr = new XMLHttpRequest();
+    var xhrComments = new XMLHttpRequest();
 
-    xhr.open("GET", "http://10.114.32.46:8080/SchoolProject/webresources/generic/getData", true);
+    xhr.open("GET", "json/Img.json", true);
+    xhrComments.open("GET", "json/Feedback.json", true);
 
     xhr.onreadystatechange = showImages;
+    xhrComments.onreadystatechange = loadComments;
 
     xhr.send();
+    xhrComments.send();
 
 }
 
