@@ -50,7 +50,7 @@ var showImages = function() {
             output += '<section class="container"><article id="' + jsonObject[i].ID + '"><figure><img src = "' + jsonObject[i].URL + '"alt = "' + jsonObject[i].UNAME + '"><figcaption> ' + jsonObject[i].Description + ' </figcaption> </figure> <section class = "comments"><p> <a class = "view-comment" onclick="showComments()"> View comments </a></p><div class = "old-comments hidden"><p> <span> {writer}: </span>Heheh</p><p> <span> {writer}: </span>Heheh</p><p> <span> {writer}: </span>Heheh</p></div> <form><div class = "new-comment"><textarea placeholder = "Write comment"> </textarea> <button type = "submit"class = "green-button"> Send </button> </div> </form> </section> </article> </section>';
         }
 
-        document.querySelector("main").innerHTML = output;
+        document.querySelector(".main-content").innerHTML = output;
     }
 
     main();
