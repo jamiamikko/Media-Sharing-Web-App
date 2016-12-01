@@ -142,10 +142,11 @@ a.view-comment:active {
 
 .comments button {
     float: right;
+    width: 10%;
 }
 
 .comments textarea {
-    width: 70%;
+    width: 85%;
 }
 
 nav ul {
@@ -281,6 +282,15 @@ nav ul {
     aside {
         display: none;
     }
+    .comments button {
+    float: right;
+    width: 9%;
+    padding-right: 3.5em;
+    }
+
+    .comments textarea {
+     width: 70%;
+    }
 }
 
 figure img {
@@ -288,6 +298,7 @@ figure img {
     width: auto;
     margin-top: 1em;
     margin-bottom: 1em;
+    text-align: center;
 }
 
 .container {
@@ -350,8 +361,10 @@ footer {
 }
 
 .input-field {
+    width: 90%;
     box-shadow: 0 0 1px #4a7e84;
 }
+
 
 .green-button {
     background-color: #4a7e84;
