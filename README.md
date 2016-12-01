@@ -17,3 +17,13 @@ do your changes to the project
 'git pull' to make sure you have the latest version (this way you won't mess up the versions)
 
 'git push' to push your changes to the branch
+
+#How to switch branches:
+In your repository on your local computer, type shell command: 'git checkout "your working branch name"'. This will change your working branch to new one.
+
+Example:
+'git checkout Mokhartz'
+
+When you are done with your local changes, review the changes with your team. If the changes are ok, merge your branch with master Branch.
+
+#You should never develop new stuff directly to master branch!!
