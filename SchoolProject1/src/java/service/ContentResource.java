@@ -59,13 +59,11 @@ public class ContentResource {
     
     @Path("signup")
     @POST
-    //@Produces(MediaType.APPLICATION_JSON)
-    public /*Collection<Img>*/ Response signup(@FormParam("Username")String Username, @FormParam("Password")String Password) throws URISyntaxException{
+    public Response signup(@FormParam("Username")String Username, @FormParam("Password")String Password) throws URISyntaxException{
         Usr newUser = resource.getUserByName(Username);
         if(newUser == null){
             newUser = new Usr(Username, Password);
             resource.insertUser(newUser);
-//            return newUser.getImgCollection();
             java.net.URI location = new java.net.URI("../index.html?id=" + newUser.getId().toString());
             return Response.temporaryRedirect(location).build();
         }

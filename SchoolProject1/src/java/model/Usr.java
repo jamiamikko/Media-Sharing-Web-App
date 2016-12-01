@@ -84,7 +84,8 @@ public class Usr implements Serializable {
     }
 
     public Usr(String Username, String Password) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.userName = userName;
+        this.password = password;
     }
 
     public Integer getId() {
