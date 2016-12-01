@@ -1,0 +1,199 @@
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+html {
+    font-family: Arial, helvetica, sans-serif !important;
+}
+
+body {
+    background-image: url("../img/background.gif");
+}
+
+main {
+    width: 30%;
+    height: auto;
+    margin: 5em auto;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    /*justify-content: center;*/
+    background: rgba(219, 206, 203, 0.5);
+    /*border: solid #8E8D8A 0.313em;*/
+    padding: 2em;
+}
+
+main section {
+    padding: 2em;
+}
+
+main section a object {
+    width: 100%;
+    height: auto;
+}
+
+a.svg {
+    position: relative;
+    display: inline-block;
+    margin-left: 0 !important;
+}
+
+.red-button {
+    width: 70%;
+    height: auto;
+    margin-bottom: 5%;
+    background-color: #C2345F;
+    border: none;
+    font-family: Arial;
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 0.625em;
+    font-size: 1em;
+    text-decoration: none;
+    /*text-shadow: 0.25em 0.125em 0.625em #050505;*/
+    -webkit-box-shadow: 0.25em 0.188em 0.563em #666666;
+    -moz-box-shadow: 0.25em 0.188em 0.563emx #666666;
+    box-shadow: 0.25em 0.188em 0.563emx #666666;
+}
+
+.red-button.clicked {
+    width: 50%;
+    height: 50%;
+    margin-bottom: 5%;
+    /*text-shadow: 0.25em 0.125em 0.625em #050505;*/
+    -webkit-box-shadow: 0.25em 0.188em 0.563em #666666;
+    -moz-box-shadow: 0.25em 0.188em 0.563emx #666666;
+    box-shadow: 0.25em 0.188em 0.563emx #666666;
+    color: #ffffff;
+    font-size: 0.7em;
+    background: #C2345F;
+    text-decoration: none;
+    transition: height 0.75s ease-out;
+}
+
+.submit-button {
+    background-color: #C2345F;
+    border: none;
+    font-family: Arial;
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 0.625em;
+    font-size: 0.75em;
+    -webkit-box-shadow: 0.25em 0.188em 0.563em #666666;
+    -moz-box-shadow: 0.25em 0.188em 0.563emx #666666;
+    box-shadow: 0.25em 0.188em 0.563emx #666666;
+}
+
+
+/*button.red {
+    width: 80%;
+    height: 4em;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    -webkit-border-radius: 1.125em;
+    -moz-border-radius: 1.125em;
+    border-radius: 1.125em;
+    text-shadow: 0.25em 0.125em 0.625em #050505;
+    -webkit-box-shadow: 0.25em 0.188em 0.563em #666666;
+    -moz-box-shadow: 0.25em 0.188em 0.563emx #666666;
+    box-shadow: 0.25em 0.188em 0.563emx #666666;
+    color: #ffffff;
+    font-size: 1.2em;
+    background: #C2345F;
+    border: solid #000000 0.125em;
+    text-decoration: none;
+    transition: height 0.75s ease-in;
+}
+
+button.red:hover {
+    background: #403e40;
+    text-decoration: none;
+}*/
+
+
+/*button.red.clicked {
+    width: 80%;
+    height: 3em;
+    margin-bottom: 5%;
+    -webkit-border-radius: 0.625em;
+    -moz-border-radius: 0.625em;
+    border-radius: 0.625em;
+    text-shadow: 0.25em 0.125em 0.625em #050505;
+    -webkit-box-shadow: 0.25em 0.188em 0.563em #666666;
+    -moz-box-shadow: 0.25em 0.188em 0.563emx #666666;
+    box-shadow: 0.25em 0.188em 0.563emx #666666;
+    color: #ffffff;
+    font-size: 1em;
+    background: #C2345F;
+    border: solid #000000 0.125em;
+    text-decoration: none;
+    transition: height 0.75s ease-out;
+}*/
+
+form {
+    display: flex;
+    opacity: 0;
+    overflow: hidden;
+    height: 0;
+    width: 0;
+    flex-flow: column nowrap;
+    /*background: rgba(219, 206, 203, 0.5);*/
+    border: solid #FFFFFF 0.125em;
+    /*border-radius: 0em;*/
+    padding: 0em;
+    padding-bottom: 0em;
+    margin-bottom: 0%;
+    transition: 0.75s ease-out;
+}
+
+form.show {
+    opacity: 1;
+    width: 62%;
+    height: 20%;
+    display: flex;
+    flex-flow: column nowrap;
+    /*background: rgba(219, 206, 203, 0.5);*/
+    border: solid #FFFFFF 0.125em;
+    /*border-radius: 1.125em;*/
+    padding: 0.7em;
+    padding-bottom: 1.5em;
+    margin-bottom: 3%;
+    transition: 0.75 ease-in;
+}
+
+form span {
+    color: #ffffff;
+}
+
+@media screen and (max-width: 900px) {
+    main {
+        width: 50%;
+        height: 80%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    main {
+        width: 70%;
+        height: 80%;
+    }
+}
+
+footer {
+    color: white;
+}
+
+a.svg {
+    position: relative;
+}
+
+a.svg:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
