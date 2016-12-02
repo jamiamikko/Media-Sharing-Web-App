@@ -29,6 +29,7 @@ public class ApplicationConfig extends Application {
      * If required, comment out calling this method in getClasses().
      */
     private void addRestResourceClasses(Set<Class<?>> resources) {
+        resources.add(JsonRestful.CommentResource.class);
         resources.add(JsonRestful.GenericResource.class);
         resources.add(JsonRestful.RestResponseFilter.class);
         resources.add(service.ContentResource.class);

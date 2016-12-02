@@ -10,6 +10,7 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import model.Feedback;
 import model.Img;
 import model.Usr;
 
@@ -27,7 +28,7 @@ public class Codebox {
         return em.createNamedQuery("Usr.findAll").getResultList();
     }
     
-    public Usr getUserById(String id){
+    public Usr getUserById(int id){
         return em.find(Usr.class, id);
     }
     
@@ -56,5 +57,20 @@ public class Codebox {
     
     public void updateUser(Usr user){
         em.merge(user);
+    }
+    
+    //insert, update(?), delete, (select?) comments/feedback
+    public List<Feedback> getCommentForImage(int imgId){
+        return em.createNamedQuery("Feedback.findAll").getResultList();
+    }
+    
+    public Feedback createFeedback(Feedback f){
+        em.persist(f);
+        return f;
+    }
+    
+    //insert, update, delete, select images
+    public Img getImgById(int id){
+        return em.find(Img.class, id);
     }
 }

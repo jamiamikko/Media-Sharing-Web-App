@@ -82,6 +82,26 @@ public class Feedback implements Serializable {
         this.uploadDate = uploadDate;
     }
 
+    public Feedback(String content, Date uploadDate) {
+        this.content = content;
+        this.uploadDate = uploadDate;
+    }
+
+    public Feedback(String content, Date uploadDate, Usr owner, Img onContent) {
+        this.content = content;
+        this.uploadDate = uploadDate;
+        this.owner = owner;
+        this.onContent = onContent;
+    }
+
+    public Feedback(String content, Date uploadDate, Feedback onFeedback, Usr owner, Img onContent) {
+        this.content = content;
+        this.uploadDate = uploadDate;
+        this.onFeedback = onFeedback;
+        this.owner = owner;
+        this.onContent = onContent;
+    }
+    
     public Integer getId() {
         return id;
     }

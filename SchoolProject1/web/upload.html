@@ -63,7 +63,7 @@
         <main class="container text-align-center profile-wrapper">
             <div class="centering-wrapper">
                 <h1>New post</h1>
-                <form method="post" action="uploadPost">
+                <form method="post" enctype="multipart/form-data" action="uploadPost">
                     Title:<br>
                     <input class="input-field" type="text" name="title"><br><br>
                     Description:<br>
@@ -71,8 +71,7 @@
                     <button class="green-button">
                     <input type="file" class="file-input" name="temp"> Choose File
                     </button><br><br>
-                    <input class="green-button" type="submit" 
-                    value="Upload">
+                    <input class="green-button" type="submit" value="Upload">
                     <br/><br/>
                 </form>
             </div>
