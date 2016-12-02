@@ -3,7 +3,19 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/Users/jamiamikko/NetBeansProjects/SchoolProject1/web/statistics.html</file>
+            <file>file:/Users/jamiamikko/NetBeansProjects/SchoolProject1/src/java/model/Feedback.java</file>
+            <file>file:/Users/jamiamikko/NetBeansProjects/SchoolProject1/src/java/model/Usr.java</file>
+            <file>file:/Users/jamiamikko/NetBeansProjects/SchoolProject1/src/java/service/ContentResource.java</file>
+            <file>file:/Users/jamiamikko/NetBeansProjects/SchoolProject1/src/java/model/Img.java</file>
+            <file>file:/Users/jamiamikko/NetBeansProjects/SchoolProject1/src/java/controller/SessionBean.java</file>
+            <file>file:/Users/jamiamikko/NetBeansProjects/SchoolProject1/web/js/main.js</file>
             <file>file:/Users/jamiamikko/NetBeansProjects/SchoolProject1/web/login.html</file>
+            <file>file:/Users/jamiamikko/NetBeansProjects/SchoolProject1/web/index.html</file>
+            <file>file:/Users/jamiamikko/NetBeansProjects/SchoolProject1/web/profile.html</file>
+            <file>file:/Users/jamiamikko/NetBeansProjects/SchoolProject1/web/upload.html</file>
+            <file>file:/Users/jamiamikko/NetBeansProjects/SchoolProject1/src/java/controller/Codebox.java</file>
+            <file>file:/Users/jamiamikko/NetBeansProjects/SchoolProject1/src/java/JsonRestful/GenericResource.java</file>
         </group>
     </open-files>
 </project-private>

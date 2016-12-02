@@ -8,7 +8,7 @@ import javax.persistence.metamodel.StaticMetamodel;
 import model.Feedback;
 import model.Usr;
 
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2016-12-01T13:03:34")
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2016-12-02T09:54:38")
 @StaticMetamodel(Img.class)
 public class Img_ { 
 
