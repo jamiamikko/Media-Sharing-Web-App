@@ -66,7 +66,7 @@ public class CommentResource {
         Feedback feedback = new Feedback(content, new Date(), usar, image);
         sessionBean.createFeedback(feedback);
         
-        java.net.URI location = new java.net.URI("../index.html?id=" + user);
+        java.net.URI location = new java.net.URI("../index.html");
         return Response.temporaryRedirect(location).build();
         
         

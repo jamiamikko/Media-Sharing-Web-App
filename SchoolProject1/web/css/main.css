@@ -141,8 +141,9 @@ a.view-comment:active {
 }
 
 .comments button {
+    width: 9%;
+    height: 3.5em;
     float: right;
-    width: 10%;
 }
 
 .comments textarea {
@@ -215,6 +216,13 @@ nav ul {
     .mobile {
         display: block !important;
     }
+    .float-right{
+        float: right;
+    }
+
+    .float-left{
+        float: left;
+    }
 }
 
 
@@ -282,14 +290,23 @@ nav ul {
     aside {
         display: none;
     }
-    .comments button {
-    float: right;
-    width: 9%;
-    padding-right: 3.5em;
+    .comments textarea {
+        width: 70%;
     }
 
-    .comments textarea {
-     width: 70%;
+    .comments button {
+        padding-right: 3em;
+        width: 9%;
+        height: 3.5em;
+        float: right;
+    }
+
+    .float-right{
+        clear: both;
+    }
+
+    .float-left{
+        clear: both
     }
 }
 
@@ -298,7 +315,6 @@ figure img {
     width: auto;
     margin-top: 1em;
     margin-bottom: 1em;
-    text-align: center;
 }
 
 .container {
@@ -361,10 +377,16 @@ footer {
 }
 
 .input-field {
-    width: 90%;
+    width: 100%;
     box-shadow: 0 0 1px #4a7e84;
 }
 
+
+
+.margin{
+    width: 55%;
+    margin: 0 auto;
+}
 
 .green-button {
     background-color: #4a7e84;
@@ -377,6 +399,8 @@ footer {
     font-size: 0.75em;
     overflow: hidden;
     position: relative;
+    margin-bottom: 1em;
+    min-height: 2.6em;
 }
 
 

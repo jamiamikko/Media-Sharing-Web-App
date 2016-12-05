@@ -76,11 +76,11 @@ var loadComments = function(json) {
     var articles = document.querySelectorAll('article');
 
     for (k = 0; k < articles.length; k++) {
-
+    	//console.log(json);
         for (i = 0; i < json.length; i++) {
 
-            if (json[i].id == articles[k].getAttribute('ID')) {
-                articles[k].querySelector('.old-comments').innerHTML = '<p> <span> ' + json[i].owner.userName + ': </span>' + json[i].content + '</p>';
+            if (json[i].onContent.id == articles[k].getAttribute('ID')) {
+                articles[k].querySelector('.old-comments').innerHTML += '<p> <span> ' + json[i].owner.userName + ': </span>' + json[i].content + '</p>';
             }
         }
     }
@@ -100,7 +100,7 @@ var loadContent = function(json) {
     }
 
     for (i = 0; i < json.length; i++) {
-        output += '<section class="container"><article id="' + json[i].id + '"><figure><img src = "' + json[i].url + '"alt = "' + json[i].name + '"><figcaption> ' + json[i].description + ' </figcaption> </figure> <section class = "comments"><p> <a class = "view-comment" onclick="showComments()"> View comments </a></p><div class = "old-comments hidden"><p>There are no comments for this post..</p></div> <form action="webresources/Commenting/insert" method="post"> <div class = "new-comment"><input type="hidden" name="userId" value="' + id +'"><input type="hidden" name="postId" value="' + json[i].id +'"><textarea name="content" placeholder = "Write comment"> </textarea> <button type = "submit"class = "green-button"> Send </button> </div> </form> </section> </article> </section>';
+        output += '<section class="container"><article id="' + json[i].id + '"><figure><img src = "' + json[i].url + '"alt = "' + json[i].name + '"><figcaption> ' + json[i].description + ' </figcaption> </figure> <section class = "comments"><p> <a class = "view-comment" onclick="showComments()"> View comments </a></p><div class = "old-comments hidden"></div> <form action="webresources/Commenting/insert" method="post"> <div class = "new-comment"><input type="hidden" name="userId" value="' + id +'"><input type="hidden" name="postId" value="' + json[i].id +'"><textarea name="content" placeholder = "Write comment"> </textarea> <button type = "submit"class = "green-button"> Send </button> </div> </form> </section> </article> </section>';
     }
 
     document.querySelector('.main-content').innerHTML = output;

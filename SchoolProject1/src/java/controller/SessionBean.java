@@ -5,6 +5,8 @@
  */
 package controller;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import javax.ejb.Stateless;
 import model.Feedback;
 import model.Img;
@@ -34,7 +36,10 @@ public class SessionBean {
     }
 
     public List<Img> selectAll() {
-        return em.createNamedQuery("Img.findAll").getResultList();
+        List<Img> img = em.createNamedQuery("Img.findAll").getResultList();
+        ArrayList<Img> newList = new ArrayList<Img>(img);
+        Collections.reverse(newList);
+        return newList;
     }
     
     public List<Feedback> selectAllComments() {
