@@ -62,20 +62,23 @@
         <section class="clear wrapper">
             <main class="container text-align-center centering-wrapper">
 
-                <h1>New post</h1>
-                <form method="post" action="uploadPost">
-                    Title:<br>
-                    <input class="input-field" type="text" name="title"><br><br>
-                    Description:<br>
-                    <input class="input-field" type="text" name="description"><br><br>
-                    <button class="green-button">
-                        <input type="file" class="file-input" name="temp"> Choose File
-                    </button><br><br>
-                    <input class="green-button" type="submit" 
+                <div class="margin">
+                <h1>New post</h1><br>
+                <form method="post" action="UploadFile" enctype="multipart/form-data">
+                    Title:<br><br>
+                    <input class="input-field" type="text" name="Title"><br><br><br>
+                    Description:<br><br>
+                    <textarea class="input-field" type="text" name="Description"></textarea><br><br>
+                    <div>
+                    <button class="green-button float-left">
+                        <input type="file" class="file-input" name="filename"> Choose File
+                    </button>
+                    <input class="green-button float-right" type="submit" 
                            value="Upload">
+                    </div>
                     <br/><br/>
                 </form>
-
+                </div>
             </main>
         </section>
         <footer class="clear">

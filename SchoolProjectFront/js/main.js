@@ -76,7 +76,7 @@ var loadComments = function(json) {
     var articles = document.querySelectorAll('article');
 
     for (k = 0; k < articles.length; k++) {
-    	console.log(json);
+    	//console.log(json);
         for (i = 0; i < json.length; i++) {
 
             if (json[i].onContent.id == articles[k].getAttribute('ID')) {

@@ -141,11 +141,13 @@ a.view-comment:active {
 }
 
 .comments button {
+    width: 9%;
+    height: 3.5em;
     float: right;
 }
 
 .comments textarea {
-    width: 70%;
+    width: 85%;
 }
 
 nav ul {
@@ -199,6 +201,7 @@ nav ul {
     .half {
         width: 49%;
         float: left;
+        text-align: left !important;
     }
     .third {
         width: 30%;
@@ -213,6 +216,13 @@ nav ul {
     }
     .mobile {
         display: block !important;
+    }
+    .float-right{
+        float: right;
+    }
+
+    .float-left{
+        float: left;
     }
 }
 
@@ -281,6 +291,24 @@ nav ul {
     aside {
         display: none;
     }
+    .comments textarea {
+        width: 70%;
+    }
+
+    .comments button {
+        padding-right: 3em;
+        width: 9%;
+        height: 3.5em;
+        float: right;
+    }
+
+    .float-right{
+        clear: both;
+    }
+
+    .float-left{
+        clear: both
+    }
 }
 
 figure img {
@@ -328,6 +356,7 @@ figure img {
     max-width: 70%;
     text-align: center;
     margin: 0 auto;
+    padding: 2em;
 }
 
 .marginless {
@@ -351,7 +380,15 @@ footer {
 }
 
 .input-field {
+    width: 100%;
     box-shadow: 0 0 1px #4a7e84;
+}
+
+
+
+.margin{
+    width: 55%;
+    margin: 0 auto;
 }
 
 .green-button {
@@ -365,6 +402,8 @@ footer {
     font-size: 0.75em;
     overflow: hidden;
     position: relative;
+    margin-bottom: 1em;
+    min-height: 2.6em;
 }
 
 
@@ -378,6 +417,9 @@ footer {
     position: absolute;
 }
 
+.margin-top {
+    margin-top: 1em;
+}
 
 /* ==========================================================================
    Media Queries
