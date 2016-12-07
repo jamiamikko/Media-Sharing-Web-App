@@ -3,21 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package JsonRestful;
+package jsonRestful;
 
-import controller.Codebox;
+import controller.SessionBean;
 import java.net.URISyntaxException;
 import java.util.Date;
 import javax.ejb.EJB;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Produces;
-import javax.ws.rs.Consumes;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
-import javax.ws.rs.PUT;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import model.Feedback;
@@ -36,7 +34,7 @@ public class CommentResource {
     private UriInfo context;
 
     @EJB
-    private Codebox sessionBean;
+    private SessionBean sessionBean;
     /**
      * Creates a new instance of CommentResource
      */
@@ -64,7 +62,7 @@ public class CommentResource {
         Usr usar = new Usr(user);
         Img image = new Img(post);
         Feedback feedback = new Feedback(content, new Date(), usar, image);
-        sessionBean.createFeedback(feedback);
+        sessionBean.insertFeedback(feedback);
         
         java.net.URI location = new java.net.URI("../index.html");
         return Response.temporaryRedirect(location).build();

@@ -32,10 +32,10 @@ import model.Feedback;
  */
 @WebServlet(urlPatterns = {"/Commentor"})
 
-public class Commentor extends HttpServlet {
+public class DeadMaybeCommentor extends HttpServlet {
     
-    @EJB
-    private Codebox cb;
+//    @EJB
+//    private Codebox cb;
     
 //    private EntityManager em;
 //    private EntityTransaction t;
@@ -103,7 +103,7 @@ public class Commentor extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             out.println(idc);
             
-            Feedback feedback = new Feedback(idc, new Date(), cb.getUserById(idUser), cb.getImgById(idImg));
+//            Feedback feedback = new Feedback(idc, new Date(), cb.getUserById(idUser), cb.getImgById(idImg));
             
 //            DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 //            Date myDate = (Date) formatter.parse("2016-12-02");
@@ -118,8 +118,8 @@ public class Commentor extends HttpServlet {
 //                t.begin();
 //                em.persist(feedback);
 //                t.commit();
-                feedback = cb.createFeedback(feedback);
-                out.println("Added successfully with id: " + feedback.getId());
+//                feedback = cb.createFeedback(feedback);
+//                out.println("Added successfully with id: " + feedback.getId());
             } catch (Exception e) {
                 System.err.println("Caught Exception: " + e.getMessage());
 //                t.rollback();
@@ -127,7 +127,7 @@ public class Commentor extends HttpServlet {
             }
 //            em.close();
         } catch (Exception ex) {
-            Logger.getLogger(Commentor.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DeadMaybeCommentor.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

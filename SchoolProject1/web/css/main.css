@@ -201,6 +201,7 @@ nav ul {
     .half {
         width: 49%;
         float: left;
+        text-align: left !important;
     }
     .third {
         width: 30%;
@@ -325,6 +326,7 @@ figure img {
     -moz-box-shadow: 0em 0.625em 1.563em 0.188em rgba(133, 133, 133, 0.61);
     box-shadow: 0em 0.625em 1.563em 0.188em rgba(133, 133, 133, 0.61);
     padding: 1.250em;
+    overflow: auto;
 }
 
 .container section p {
@@ -354,6 +356,7 @@ figure img {
     max-width: 70%;
     text-align: center;
     margin: 0 auto;
+    padding: 2em;
 }
 
 .marginless {
@@ -414,6 +417,9 @@ footer {
     position: absolute;
 }
 
+.margin-top {
+    margin-top: 1em;
+}
 
 /* ==========================================================================
    Media Queries

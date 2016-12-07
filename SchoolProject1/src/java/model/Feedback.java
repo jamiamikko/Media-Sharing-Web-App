@@ -8,6 +8,7 @@ package model;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -38,7 +39,10 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Feedback.findAll", query = "SELECT f FROM Feedback f")
     , @NamedQuery(name = "Feedback.findById", query = "SELECT f FROM Feedback f WHERE f.id = :id")
     , @NamedQuery(name = "Feedback.findByContent", query = "SELECT f FROM Feedback f WHERE f.content = :content")
-    , @NamedQuery(name = "Feedback.findByUploadDate", query = "SELECT f FROM Feedback f WHERE f.uploadDate = :uploadDate")})
+    , @NamedQuery(name = "Feedback.findByUploadDate", query = "SELECT f FROM Feedback f WHERE f.uploadDate = :uploadDate")
+    , @NamedQuery(name = "Feedback.findMostActiveUser", query = "SELECT DISTINCT e FROM Feedback e GROUP BY e.owner ORDER BY COUNT(e.owner) DESC")
+    , @NamedQuery(name = "Feedback.findMostCommentedPost", query = "SELECT DISTINCT e FROM Feedback e GROUP BY e.onContent ORDER BY COUNT(e.onContent) DESC")})
+
 public class Feedback implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -69,6 +73,7 @@ public class Feedback implements Serializable {
     @ManyToOne
     private Img onContent;
 
+    
     public Feedback() {
     }
 
@@ -183,5 +188,6 @@ public class Feedback implements Serializable {
     public String toString() {
         return "model.Feedback[ id=" + id + " ]";
     }
+    
     
 }

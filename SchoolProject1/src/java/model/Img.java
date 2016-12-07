@@ -19,6 +19,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -40,7 +41,11 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Img.findByUrl", query = "SELECT i FROM Img i WHERE i.url = :url")
     , @NamedQuery(name = "Img.findByName", query = "SELECT i FROM Img i WHERE i.name = :name")
     , @NamedQuery(name = "Img.findByDescription", query = "SELECT i FROM Img i WHERE i.description = :description")
-    , @NamedQuery(name = "Img.findByUploadDate", query = "SELECT i FROM Img i WHERE i.uploadDate = :uploadDate")})
+    , @NamedQuery(name = "Img.findByUploadDate", query = "SELECT i FROM Img i WHERE i.uploadDate = :uploadDate")
+    //, @NamedQuery(name = "Img.findOneByMaxFeedback", query = "SELECT i FROM Img i ORDER BY (SELECT COUNT(*) FROM Feedback WHERE Feedback.OnContent = i.id) DESC LIMiT 1") })
+    //    , @NamedQuery(name = "Img.findOneByMaxFeedback", query = "SELECT i FROM Img i ORDER BY (SELECT COUNT(f.id) FROM Feedback f WHERE f.OnContent = i.id) as t DESC, LIMIT 1") })
+            , @NamedQuery(name = "Img.findOneByMaxFeedback", query = "SELECT i FROM Img i ORDER BY i.uploadDate") })
+
 public class Img implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -82,6 +87,14 @@ public class Img implements Serializable {
         this.id = id;
         this.url = url;
         this.uploadDate = uploadDate;
+    }
+
+    public Img(String url, String name, String description, Date uploadDate, Usr owner) {
+        this.url = url;
+        this.name = name;
+        this.description = description;
+        this.uploadDate = uploadDate;
+        this.owner = owner;
     }
 
     public Integer getId() {

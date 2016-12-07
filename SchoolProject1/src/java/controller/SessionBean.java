@@ -6,6 +6,7 @@
 package controller;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import javax.ejb.Stateless;
 import model.Feedback;
@@ -14,6 +15,7 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import model.Usr;
 /**
  *
@@ -22,44 +24,109 @@ import model.Usr;
 @Stateless
 public class SessionBean {
 
-    // Add business logic below. (Right-click in editor and choose
-    // "Insert Code > Add Business Method")
-    // Add business logic below. (Right-click in editor and choose
-    // "Insert Code > Add Business Method")
-    @PersistenceContext(name = "SchoolProjectPU")
+    @PersistenceContext(name = "SchoolProject1PU")
     private EntityManager em;
-    // Add business logic below. (Right-click in editor and choose
-    // "Insert Code > Add Business Method")
+
+    public List<Usr> getAllUser(){
+        return em.createNamedQuery("Usr.findAll").getResultList();
+    }
     
-    public Img selectByID(int id) {
+    
+    
+    public Usr getUserById(int id){
+        return em.find(Usr.class, id);
+    }
+    
+    public Usr getGuest(){
+        return getUserByName("guest");
+    }
+    
+    public Usr getUserByName(String name){
+        //Why not simply 
+        //return (Usr)em.createNamedQuery("Usr.findByUserName").getSingleResult();
+        List<Usr> userList = getAllUser();
+        for (Usr user : userList){
+            if (user.getUserName().equals(name)){
+                return user;
+            }
+        }
+        return null;
+        //return (Usr) em.createNamedQuery("Usr.findByUserName").setParameter("userName", name).getSingleResult();
+    }
+    
+    public Collection<Img> getImgByUserName(String name){
+        return getUserByName(name).getImgCollection();
+    }
+    
+    public void insertUser(Usr user){
+        em.persist(user);
+    }
+    
+    public void updateUser(Usr user){
+        em.merge(user);
+    }
+    
+    //insert, update(?), delete, (select?) comments/feedback
+    public List<Feedback> getCommentForImage(int imgId){
+        return em.createNamedQuery("Feedback.findAll").getResultList();
+    }
+    
+    public Feedback insertFeedback(Feedback f){
+        em.persist(f);
+        return f;
+    }
+    
+    //insert, update, delete, select images
+    
+    public Img getImgByID(int id) {
         return em.find(Img.class, id);
     }
+    
+     public Feedback getFeedbackByID(int id) {
+        return em.find(Feedback.class, id);
+    }
 
-    public List<Img> selectAll() {
+    public List<Img> getAllImages() {
         List<Img> img = em.createNamedQuery("Img.findAll").getResultList();
         ArrayList<Img> newList = new ArrayList<Img>(img);
         Collections.reverse(newList);
         return newList;
     }
     
-    public List<Feedback> selectAllComments() {
+    public List<Feedback> getAllComments() {
         return em.createNamedQuery("Feedback.findAll").getResultList();
     }
     
-    public List<Usr> selectAllUsers() {
-        return em.createNamedQuery("Usr.findAll").getResultList();
+    public Img getOneOfImgWithMostFeedback(){
+        return (Img)em.createNamedQuery("Img.findOneByMaxFeedback").getSingleResult();
+    }
+    
+    public List<Feedback> getImgMostFeedback(){
+        return em.createNamedQuery("Feedback.findMostCommentedPost").getResultList();
+    }
+    
+    public List<Feedback> getUserMostFeedback(){
+        return em.createNamedQuery("Feedback.findMostActiveUser").getResultList();
     }
 
-    public Img insert(Img c) {
+    public Img insertImg(Img c) {
         em.persist(c);
         return c;
     }
 
-    public void update(Img c) {
+    public void updateImg(Img c) {
         em.merge(c);
     }
 
-    public void delete(Img c) {
+    public void deleteImage(Img c) {
+        em.remove(em.merge(c));
+    }
+    
+    public void deleteUser(Usr c) {
+        em.remove(em.merge(c));
+    }
+    
+    public void deleteFeedback(Feedback c) {
         em.remove(em.merge(c));
     }
 }
