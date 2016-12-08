@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Codebox</title>
+    <title>Codebox - Profile</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -19,8 +19,8 @@
             <div class="nav-wrapper">
                 <div class="mobi-nav">
                     <a href="index.html" class="svg">
-                        <object data="img/logo_resize.svg" class="svg-logo" type="image/svg+xml">
-                            <img src="img/logo_resize.png" alt="Code box logo" />
+                        <object data="img/logo.svg" class="svg-logo" type="image/svg+xml">
+                            <img src="img/logo.png" alt="Code box logo" />
                         </object>
                     </a>
                     <a class="mobi-button" onclick="menuToggle()">
@@ -30,8 +30,8 @@
                 <ul class="main-nav" id="main-nav">
                     <li>
                         <a href="index.html" class="svg mobile">
-                            <object data="img/logo_resize.svg" class="svg-logo" type="image/svg+xml">
-                                <img src="img/logo_resize.png" alt="Code box logo" />
+                            <object data="img/logo.svg" class="svg-logo" type="image/svg+xml">
+                                <img src="img/logo.png" alt="Code box logo" />
                             </object>
                         </a>
                     </li>
@@ -50,23 +50,25 @@
                         Login / Sign up
                     </a>
                     </li>
-                    <li>
-                        <a class="navi-item" href="upload.html">
-                        Upload
-                    </a>
-                    </li>
-                    
-                    
                 </ul>
             </div>
         </nav>
     </header>
     <section class="clear wrapper">
-        <aside class="third container text-align-center profile">
-            <object class="profile-img-size" data="img/profile-icon.svg" type="image/svg+xml"></object>
-            <h3>You are logged in as guest</h3>
-        </aside>
-        <main class="two-thirds main-content">
+        <main class="container text-align-center profile-wrapper">
+            <div class="centering-wrapper">
+                <h1>PROFILE</h1>
+                <object class="profile-img-size" data="img/profile-icon.svg" type="image/svg+xml">
+                </object>
+                <h2>Example profile</h2>
+                <h3 class="marginless">Active since</h3>
+                <h4 class="marginless">dd.mm.yyyy</h4>
+                <br>
+                <button class="green-button" name="button">Profile settings</button>
+                <br>
+                <br>
+                <button class="green-button" name="button">Change password</button>
+            </div>
         </main>
     </section>
     <footer class="clear">
@@ -75,6 +77,19 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script>
     window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')
+    </script>
+    <script type="text/javascript">
+    function menuToggle() {
+        var div = document.getElementById("main-nav");
+
+        var className = div.getAttribute("class");
+
+        if (className == "main-nav") {
+            div.className += " active";
+        } else {
+            div.className = "main-nav";
+        }
+    }
     </script>
     <script src="js/main.js"></script>
 </body>

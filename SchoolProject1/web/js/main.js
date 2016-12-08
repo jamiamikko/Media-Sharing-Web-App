@@ -21,6 +21,28 @@ function activateLogOut() {
     loginButton.setAttribute('onclick', 'logOut()');
 }
 
+function hideNaviFromGuest() {
+    var naviItems = document.querySelectorAll('.navi-item');
+
+    for (var m = 0; m < naviItems.length; m++) {
+        if (naviItems[m].innerHTML.indexOf('Login') == -1) {
+
+            naviItems[m].className += ' hidden';
+        }
+    }
+
+}
+
+function hideCommentsFromGuest() {
+
+    var commentItem = document.querySelectorAll('.comments');
+
+    for (var l = 0; l < commentItem.length; l++) {
+        commentItem[l].className += ' hidden';
+    }
+}
+
+
 function logOut() {
     var cookieName = 'codeboxId=';
     document.cookie = cookieName + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
@@ -43,7 +65,7 @@ function getId() {
     return "";
 }
 
-var showComments = function(element) {
+var showComments = function (element) {
     if (element && element.target.getAttribute('class') == 'view-comment') {
 
         var hiddenComments = element.path[2].querySelector('.old-comments');
@@ -69,14 +91,14 @@ function addClickEvents() {
     }
 }
 
-var loadComments = function(json) {
+var loadComments = function (json) {
 
     var output = '';
 
     var articles = document.querySelectorAll('article');
 
     for (k = 0; k < articles.length; k++) {
-    	console.log(json);
+        //console.log(json);
         for (i = 0; i < json.length; i++) {
 
             if (json[i].onContent.id == articles[k].getAttribute('ID')) {
@@ -85,9 +107,14 @@ var loadComments = function(json) {
         }
     }
 
+    if (document.cookie.indexOf('codeboxId') == -1) {
+        hideNaviFromGuest();
+        hideCommentsFromGuest();
+    }
+
 }
 
-var loadContent = function(json) {
+var loadContent = function (json) {
 
     var output = '';
     var id;
@@ -95,12 +122,13 @@ var loadContent = function(json) {
     if (document.cookie.indexOf('codeboxId') > -1) {
         id = getId();
     } else if (window.location.href.indexOf('id') > -1) {
+
         id = window.location.href.split('?')[1].replace('id=', '');
         document.cookie = 'codeboxId=' + id + '; expires=Thu, 18 Dec 2020 12:00:00 UTC';
     }
 
     for (i = 0; i < json.length; i++) {
-        output += '<section class="container"><article id="' + json[i].id + '"><figure><img src = "' + json[i].url + '"alt = "' + json[i].name + '"><figcaption> ' + json[i].description + ' </figcaption> </figure> <section class = "comments"><p> <a class = "view-comment" onclick="showComments()"> View comments </a></p><div class = "old-comments hidden"></div> <form action="webresources/Commenting/insert" method="post"> <div class = "new-comment"><input type="hidden" name="userId" value="' + id +'"><input type="hidden" name="postId" value="' + json[i].id +'"><textarea name="content" placeholder = "Write comment"> </textarea> <button type = "submit"class = "green-button"> Send </button> </div> </form> </section> </article> </section>';
+        output += '<section class="container"><article id="' + json[i].id + '"><h3>' + json[i].name + '</h3><figure><img src = "' + json[i].url + '"alt = "' + json[i].name + '"><figcaption> ' + json[i].description + ' </figcaption> </figure> <section class = "comments"><p> <a class = "view-comment" onclick="showComments()"> View comments </a></p><div class = "old-comments hidden"></div> <form action="webresources/Commenting/insert" method="post"> <div class = "new-comment"><input type="hidden" name="userId" value="' + id + '"><input type="hidden" name="postId" value="' + json[i].id + '"><textarea name="content" placeholder = "Write comment"> </textarea> <button type = "submit"class = "green-button"> Send </button> </div> </form> </section> </article> </section>';
     }
 
     document.querySelector('.main-content').innerHTML = output;
@@ -108,12 +136,12 @@ var loadContent = function(json) {
 
     addClickEvents();
 
-    fetch('http://10.114.32.59:8080/SchoolProject1/webresources/generic/commentData').then(function(response) {
+    fetch('http://10.114.32.59:8080/SchoolProject1/webresources/generic/commentData').then(function (response) {
         var contentType = response.headers.get("content-type");
 
         if (contentType && contentType.indexOf("application/json") !== -1) {
 
-            return response.json().then(function(newJson) {
+            return response.json().then(function (newJson) {
                 loadComments(newJson);
             });
 
@@ -124,7 +152,7 @@ var loadContent = function(json) {
     });
 }
 
-var loadUsers = function(json) {
+var loadUsers = function (json) {
     var output = '';
     var id;
 
@@ -143,6 +171,7 @@ var loadUsers = function(json) {
         for (j = 0; j < json.length; j++) {
 
             if (json[j].id == id) {
+                
                 if (aside) {
                     aside.innerHTML = '<object class="profile-img-size" data="img/profile-icon.svg" type="image/svg+xml"></object><h2>' + json[j].userName + '</h2>';
                 } else if (profileWrapper) {
@@ -152,6 +181,7 @@ var loadUsers = function(json) {
         }
 
         activateLogOut();
+
 
     }
 }
@@ -164,12 +194,12 @@ function getJson() {
 
     if (mainContent) {
 
-        fetch('http://10.114.32.59:8080/SchoolProject1/webresources/generic/imageData').then(function(response) {
+        fetch('http://10.114.32.59:8080/SchoolProject1/webresources/generic/imageData').then(function (response) {
             var contentType = response.headers.get("content-type");
 
             if (contentType && contentType.indexOf("application/json") !== -1) {
 
-                return response.json().then(function(json) {
+                return response.json().then(function (json) {
                     loadContent(json);
                 });
 
@@ -182,12 +212,12 @@ function getJson() {
     }
 
 
-    fetch('http://10.114.32.59:8080/SchoolProject1/webresources/generic/userData').then(function(response) {
+    fetch('http://10.114.32.59:8080/SchoolProject1/webresources/generic/userData').then(function (response) {
         var contentType = response.headers.get("content-type");
 
         if (contentType && contentType.indexOf("application/json") !== -1) {
 
-            return response.json().then(function(userJson) {
+            return response.json().then(function (userJson) {
                 loadUsers(userJson);
             });
 

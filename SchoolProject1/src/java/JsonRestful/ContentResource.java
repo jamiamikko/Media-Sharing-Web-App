@@ -3,21 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package service;
+package jsonRestful;
 
-import controller.Codebox;
+import controller.SessionBean;
 import java.net.URISyntaxException;
 import javax.ejb.EJB;
 import javax.ws.rs.FormParam;
-import static javax.ws.rs.HttpMethod.POST;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.Context;
-import javax.ws.rs.core.HttpHeaders;
-import javax.ws.rs.core.NewCookie;
 import javax.ws.rs.core.Response;
-import javax.ws.rs.core.UriInfo;
 import model.Usr;
 
 /**
@@ -27,12 +21,8 @@ import model.Usr;
 @Path("Content")
 public class ContentResource {
     
-    @Context
-    private UriInfo context;
-    @Context
-    private HttpHeaders headers;
     @EJB
-    private Codebox resource;
+    private SessionBean resource;
     
     public ContentResource() {
     }
@@ -59,11 +49,14 @@ public class ContentResource {
     
     @Path("signup")
     @POST
-    public Response signup(@FormParam("Username")String Username, @FormParam("Password")String Password) throws URISyntaxException{
+    //@Produces(MediaType.APPLICATION_JSON)
+    public /*Collection<Img>*/ Response signup(@FormParam("Username")String Username, @FormParam("Password")String Password) throws URISyntaxException{
         Usr newUser = resource.getUserByName(Username);
         if(newUser == null){
             newUser = new Usr(Username, Password);
+            newUser.setPrivilege(false);
             resource.insertUser(newUser);
+//            return newUser.getImgCollection();
             java.net.URI location = new java.net.URI("../index.html?id=" + newUser.getId().toString());
             return Response.temporaryRedirect(location).build();
         }

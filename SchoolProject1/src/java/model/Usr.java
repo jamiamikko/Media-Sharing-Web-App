@@ -84,8 +84,8 @@ public class Usr implements Serializable {
     }
 
     public Usr(String Username, String Password) {
-        this.userName = userName;
-        this.password = password;
+        this.userName = Username;
+        this.password = Password;
     }
 
     public Integer getId() {
