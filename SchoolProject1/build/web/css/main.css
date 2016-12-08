@@ -141,7 +141,6 @@ a.view-comment:active {
 }
 
 .comments button {
-    width: 9%;
     height: 3.5em;
     float: right;
 }
@@ -212,17 +211,22 @@ nav ul {
         float: left;
     }
     .profile-wrapper {
-        width: 100%;
+        width: 60%;
+        margin: 0 auto !important;
     }
     .mobile {
         display: block !important;
     }
-    .float-right{
+    .float-right {
         float: right;
     }
-
-    .float-left{
+    .float-left {
         float: left;
+    }
+    .centering-wrapper {
+        max-width: 60%;
+        text-align: center;
+        margin: 0 auto !important;
     }
 }
 
@@ -264,16 +268,25 @@ nav ul {
     .mobi-button {
         float: right;
         font-size: 1.5em;
-        color: white;
+        color: white !important;
+        border: none !important;
+        background: none !important;
+        height: 2.188em;
         padding: 1em 1em 0 0;
-        cursor: pointer
+        cursor: pointer;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
     }
     .mobi-button:active {
         float: right;
         font-size: 1.5em;
         color: #28616d;
         padding: 1em 1em 0 0;
-        cursor: pointer
+        cursor: pointer;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
     }
     a.svg {
         position: relative;
@@ -292,30 +305,49 @@ nav ul {
         display: none;
     }
     .comments textarea {
-        width: 70%;
+        width: 99%;
+        margin-bottom: 1em;
     }
-
     .comments button {
-        padding-right: 3em;
-        width: 9%;
-        height: 3.5em;
-        float: right;
+        width: 100%;
+        min-height: 3.5em;
     }
-
-    .float-right{
+    .float-right {
         clear: both;
     }
-
-    .float-left{
+    .float-left {
         clear: both
     }
+    .green-button {
+        background-color: #4a7e84;
+        border: none;
+        font-family: Arial;
+        color: white;
+        text-align: center;
+        text-transform: uppercase;
+        padding: 0.625em;
+        font-size: 0.75em;
+        overflow: hidden;
+        position: relative;
+        margin-bottom: 1em;
+        min-height: 2.6em;
+        width: 100%;
+    }
+}
+
+figure {
+    margin: 0em;
+    text-align: center;
 }
 
 figure img {
     max-width: 100%;
     width: auto;
+    margin: 1em auto;
+}
+
+figcaption {
     margin-top: 1em;
-    margin-bottom: 1em;
 }
 
 .container {
@@ -337,26 +369,12 @@ figure img {
     text-align: center;
 }
 
-.profile-wrapper {
-    width: 60%;
-    margin: 0 auto;
-}
-
 .profile-img-size {
     width: 50%;
 }
 
-
-
 .marginless {
     margin: 0;
-}
-
-.centering-wrapper {
-    max-width: 70%;
-    text-align: center;
-    margin: 0 auto;
-    padding: 2em;
 }
 
 .marginless {
@@ -384,9 +402,7 @@ footer {
     box-shadow: 0 0 1px #4a7e84;
 }
 
-
-
-.margin{
+.margin {
     width: 55%;
     margin: 0 auto;
 }
@@ -406,7 +422,6 @@ footer {
     min-height: 2.6em;
 }
 
-
 .green-button input.file-input {
     top: 0;
     right: 0;
@@ -420,6 +435,7 @@ footer {
 .margin-top {
     margin-top: 1em;
 }
+
 
 /* ==========================================================================
    Media Queries
