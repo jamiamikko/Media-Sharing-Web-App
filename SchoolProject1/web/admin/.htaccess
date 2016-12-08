@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "Admin Login"
+AuthUserFile /etc/httpd/admin_pass
+Require valid-user

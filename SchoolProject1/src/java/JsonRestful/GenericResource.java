@@ -97,7 +97,7 @@ public class GenericResource {
         }
         
         sessionBean.deleteImage(sessionBean.getImgByID(id));
-        java.net.URI location = new java.net.URI("../admin.html");
+        java.net.URI location = new java.net.URI("../admin/admin.html");
         return Response.temporaryRedirect(location).build();
     }
 
@@ -106,7 +106,7 @@ public class GenericResource {
     public Response deleteUser(@FormParam("id") int id) throws URISyntaxException {
         //TODO CLEAN THAT!!!!!!!!!!!!
         sessionBean.deleteUser(sessionBean.getUserById(id));
-        java.net.URI location = new java.net.URI("../admin.html");
+        java.net.URI location = new java.net.URI("../admin/admin.html");
         return Response.temporaryRedirect(location).build();
     }
 
