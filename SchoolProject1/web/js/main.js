@@ -11,7 +11,7 @@ function menuToggle() {
 }
 
 function activateLogOut() {
-    var loginButton = document.querySelector('.navi-item[href="login.html"]');
+    var loginButton = document.querySelector('#login');
 
     loginButton.innerHTML = 'Logout';
 
