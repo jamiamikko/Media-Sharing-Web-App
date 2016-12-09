@@ -175,7 +175,7 @@ var loadUsers = function (json) {
                 if (aside) {
                     aside.innerHTML = '<object class="profile-img-size" data="img/profile-icon.svg" type="image/svg+xml"></object><h2>' + json[j].userName + '</h2>';
                 } else if (profileWrapper) {
-                    profileWrapper.innerHTML = '<div class="centering-wrapper"><h1>Profile</h1><object class="profile-img-size" data="img/profile-icon.svg" type="image/svg+xml"></object><h2>' + json[j].userName + '</h2><br><button class="green-button" name="button">Profile settings</button><br><br><button class="green-button" name="button">Change password</button></div>'
+                    profileWrapper.innerHTML = '<div class="centering-wrapper"><h1>Profile</h1><object class="profile-img-size" data="img/profile-icon.svg" type="image/svg+xml"></object><h2>' + json[j].userName + '</h2><br></div>'
                 }
             }
         }
@@ -185,7 +185,6 @@ var loadUsers = function (json) {
 
     }
 }
-
 
 
 function getJson() {

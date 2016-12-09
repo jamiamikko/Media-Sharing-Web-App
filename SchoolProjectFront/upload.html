@@ -19,8 +19,8 @@
             <div class="nav-wrapper">
                 <div class="mobi-nav">
                     <a href="index.html" class="svg">
-                        <object data="img/logo_resize.svg" class="svg-logo" type="image/svg+xml">
-                            <img src="img/logo_resize.png" alt="Code box logo" />
+                        <object data="img/logo.svg" class="svg-logo" type="image/svg+xml">
+                            <img src="img/logo.png" alt="Code box logo" />
                         </object>
                     </a>
                     <a class="mobi-button" onclick="menuToggle()">
@@ -30,8 +30,8 @@
                 <ul class="main-nav" id="main-nav">
                     <li>
                         <a href="index.html" class="svg mobile">
-                            <object data="img/logo_resize.svg" class="svg-logo" type="image/svg+xml">
-                                <img src="img/logo_resize.png" alt="Code box logo" />
+                            <object data="img/logo.svg" class="svg-logo" type="image/svg+xml">
+                                <img src="img/logo.png" alt="Code box logo" />
                             </object>
                         </a>
                     </li>
@@ -50,23 +50,27 @@
                         Login / Sign up
                     </a>
                     </li>
-                    <li>
-                        <a class="navi-item" href="upload.html">
-                        Upload
-                    </a>
-                    </li>
-                    
-                    
                 </ul>
             </div>
         </nav>
     </header>
     <section class="clear wrapper">
-        <aside class="third container text-align-center profile">
-            <object class="profile-img-size" data="img/profile-icon.svg" type="image/svg+xml"></object>
-            <h3>You are logged in as guest</h3>
-        </aside>
-        <main class="two-thirds main-content">
+        <main class="container text-align-center profile-wrapper">
+            <div class="centering-wrapper">
+                <h1>New post</h1>
+                <form method="post" enctype="multipart/form-data">
+                    Title:<br>
+                    <input class="input-field" type="text" name="title"><br><br>
+                    Description:<br>
+                    <input class="input-field" type="text" name="description"><br><br>
+                    <button class="green-button">
+                    <input type="file" class="file-input" name="temp"> Choose File
+                    </button><br><br>
+                    <input class="green-button" type="submit" 
+                    value="Upload">
+                    <br/><br/>
+                </form>
+            </div>
         </main>
     </section>
     <footer class="clear">

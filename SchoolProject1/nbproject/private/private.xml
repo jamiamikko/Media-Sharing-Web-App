@@ -4,18 +4,22 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Mikko/Documents/NetBeansProjects/SchoolProject1/web/profile.html</file>
+            <file>file:/C:/Users/Mikko/Documents/NetBeansProjects/SchoolProject1/web/css/login_page.css</file>
+            <file>file:/C:/Users/Mikko/Documents/NetBeansProjects/SchoolProject1/src/java/Security/Encrypter.java</file>
+            <file>file:/C:/Users/Mikko/Documents/NetBeansProjects/SchoolProject1/src/java/jsonRestful/ContentResource.java</file>
+            <file>file:/C:/Users/Mikko/Documents/NetBeansProjects/SchoolProject1/web/admin/admin.html</file>
             <file>file:/C:/Users/Mikko/Documents/NetBeansProjects/SchoolProject1/web/index.html</file>
+            <file>file:/C:/Users/Mikko/Documents/NetBeansProjects/SchoolProject1/web/js/admin_page.js</file>
+            <file>file:/C:/Users/Mikko/Documents/NetBeansProjects/SchoolProject1/web/admin/.htaccess</file>
             <file>file:/C:/Users/Mikko/Documents/NetBeansProjects/SchoolProject1/web/js/main.js</file>
-            <file>file:/C:/Users/Mikko/Documents/NetBeansProjects/SchoolProject1/web/statistics.html</file>
             <file>file:/C:/Users/Mikko/Documents/NetBeansProjects/SchoolProject1/web/upload.html</file>
             <file>file:/C:/Users/Mikko/Documents/NetBeansProjects/SchoolProject1/web/js/statistics_page.js</file>
             <file>file:/C:/Users/Mikko/Documents/NetBeansProjects/SchoolProject1/src/java/jsonRestful/GenericResource.java</file>
-            <file>file:/C:/Users/Mikko/Documents/NetBeansProjects/SchoolProject1/src/java/controller/UploadFile.java</file>
-            <file>file:/C:/Users/Mikko/Documents/NetBeansProjects/SchoolProject1/web/admin.html</file>
-            <file>file:/C:/Users/Mikko/Documents/NetBeansProjects/SchoolProject1/src/java/model/Img.java</file>
+            <file>file:/C:/Users/Mikko/Documents/NetBeansProjects/SchoolProject1/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/Mikko/Documents/NetBeansProjects/SchoolProject1/web/js/login_page.js</file>
+            <file>file:/C:/Users/Mikko/Documents/NetBeansProjects/SchoolProject1/web/css/main.css</file>
+            <file>file:/C:/Users/Mikko/Documents/NetBeansProjects/SchoolProject1/web/js/upload_page.js</file>
             <file>file:/C:/Users/Mikko/Documents/NetBeansProjects/SchoolProject1/src/java/model/Usr.java</file>
-            <file>file:/C:/Users/Mikko/Documents/NetBeansProjects/SchoolProject1/src/java/controller/SessionBean.java</file>
-            <file>file:/C:/Users/Mikko/Documents/NetBeansProjects/SchoolProject1/src/java/model/Feedback.java</file>
             <file>file:/C:/Users/Mikko/Documents/NetBeansProjects/SchoolProject1/web/login.html</file>
         </group>
     </open-files>

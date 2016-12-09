@@ -67,17 +67,18 @@
                 <form method="post" action="UploadFile" enctype="multipart/form-data">
                     <input type="hidden" name="userId" id="userId">
                     Title:<br><br>
-                    <input class="input-field" type="text" name="Title"><br><br><br>
+                    <input class="input-field" type="text" name="Title" required=""><br><br><br>
                     Description:<br><br>
-                    <textarea class="input-field" type="text" name="Description"></textarea><br><br>
+                    <textarea class="input-field" type="text" name="Description" required></textarea><br><br>
                     <div>
                     <button class="green-button float-left">
-                        <input type="file" class="file-input" name="filename"> Choose File
+                        <input type="file" class="file-input" name="filename"  accept=".JPG, .PNG, .GIF" required> Choose File
                     </button>
                     <input class="green-button float-right" type="submit" 
                            value="Upload">
                     </div>
                     <br/><br/>
+                    <img alt="preview" id="imagePreview" class="hidden">
                 </form>
                 </div>
             </main>

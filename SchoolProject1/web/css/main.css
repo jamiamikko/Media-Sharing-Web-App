@@ -268,16 +268,25 @@ nav ul {
     .mobi-button {
         float: right;
         font-size: 1.5em;
-        color: white;
+        color: white !important;
+        border: none !important;
+        background: none !important;
+        height: 2.188em;
         padding: 1em 1em 0 0;
-        cursor: pointer
+        cursor: pointer;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
     }
     .mobi-button:active {
         float: right;
         font-size: 1.5em;
         color: #28616d;
         padding: 1em 1em 0 0;
-        cursor: pointer
+        cursor: pointer;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
     }
     a.svg {
         position: relative;

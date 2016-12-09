@@ -141,12 +141,11 @@ a.view-comment:active {
 }
 
 .comments button {
-    height: 3.5em;
     float: right;
 }
 
 .comments textarea {
-    width: 85%;
+    width: 70%;
 }
 
 nav ul {
@@ -200,7 +199,6 @@ nav ul {
     .half {
         width: 49%;
         float: left;
-        text-align: left !important;
     }
     .third {
         width: 30%;
@@ -211,22 +209,10 @@ nav ul {
         float: left;
     }
     .profile-wrapper {
-        width: 60%;
-        margin: 0 auto !important;
+        width: 100%;
     }
     .mobile {
         display: block !important;
-    }
-    .float-right {
-        float: right;
-    }
-    .float-left {
-        float: left;
-    }
-    .centering-wrapper {
-        max-width: 60%;
-        text-align: center;
-        margin: 0 auto !important;
     }
 }
 
@@ -295,50 +281,13 @@ nav ul {
     aside {
         display: none;
     }
-    .comments textarea {
-        width: 99%;
-        margin-bottom: 1em;
-    }
-    .comments button {
-        width: 100%;
-        min-height: 3.5em;
-    }
-    .float-right {
-        clear: both;
-    }
-    .float-left {
-        clear: both
-    }
-    .green-button {
-        background-color: #4a7e84;
-        border: none;
-        font-family: Arial;
-        color: white;
-        text-align: center;
-        text-transform: uppercase;
-        padding: 0.625em;
-        font-size: 0.75em;
-        overflow: hidden;
-        position: relative;
-        margin-bottom: 1em;
-        min-height: 2.6em;
-        width: 100%;
-    }
-}
-
-figure {
-    margin: 0em;
-    text-align: center;
 }
 
 figure img {
     max-width: 100%;
     width: auto;
-    margin: 1em auto;
-}
-
-figcaption {
     margin-top: 1em;
+    margin-bottom: 1em;
 }
 
 .container {
@@ -349,7 +298,6 @@ figcaption {
     -moz-box-shadow: 0em 0.625em 1.563em 0.188em rgba(133, 133, 133, 0.61);
     box-shadow: 0em 0.625em 1.563em 0.188em rgba(133, 133, 133, 0.61);
     padding: 1.250em;
-    overflow: auto;
 }
 
 .container section p {
@@ -360,12 +308,25 @@ figcaption {
     text-align: center;
 }
 
+.profile-wrapper {
+    width: 60%;
+    margin: 0 auto;
+}
+
 .profile-img-size {
     width: 50%;
 }
 
+
+
 .marginless {
     margin: 0;
+}
+
+.centering-wrapper {
+    max-width: 70%;
+    text-align: center;
+    margin: 0 auto;
 }
 
 .marginless {
@@ -389,13 +350,7 @@ footer {
 }
 
 .input-field {
-    width: 100%;
     box-shadow: 0 0 1px #4a7e84;
-}
-
-.margin {
-    width: 55%;
-    margin: 0 auto;
 }
 
 .green-button {
@@ -409,9 +364,8 @@ footer {
     font-size: 0.75em;
     overflow: hidden;
     position: relative;
-    margin-bottom: 1em;
-    min-height: 2.6em;
 }
+
 
 .green-button input.file-input {
     top: 0;
@@ -421,10 +375,6 @@ footer {
     cursor: pointer;
     opacity: 0;
     position: absolute;
-}
-
-.margin-top {
-    margin-top: 1em;
 }
 
 

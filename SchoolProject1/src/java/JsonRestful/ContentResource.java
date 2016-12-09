@@ -5,8 +5,16 @@
  */
 package jsonRestful;
 
+import Security.Encrypter;
 import controller.SessionBean;
 import java.net.URISyntaxException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 import javax.ejb.EJB;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.POST;
@@ -23,6 +31,7 @@ public class ContentResource {
     
     @EJB
     private SessionBean resource;
+    private Encrypter en;
     
     public ContentResource() {
     }
@@ -32,6 +41,13 @@ public class ContentResource {
     //@Produces(MediaType.APPLICATION_JSON)
     public Response login(@FormParam("Username")String Username, @FormParam("Password")String Password) throws URISyntaxException{
         Usr newUser = resource.getUserByName(Username);
+        try {
+            en = new Encrypter("-CODEBOX");
+            Password = en.encrypt(Password);
+        } catch (NoSuchAlgorithmException | NoSuchPaddingException | IllegalBlockSizeException | BadPaddingException | InvalidKeyException ex) {
+            Logger.getLogger(ContentResource.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         if(newUser == null){
             return null;
         }
@@ -52,6 +68,12 @@ public class ContentResource {
     //@Produces(MediaType.APPLICATION_JSON)
     public /*Collection<Img>*/ Response signup(@FormParam("Username")String Username, @FormParam("Password")String Password) throws URISyntaxException{
         Usr newUser = resource.getUserByName(Username);
+        try {
+            en = new Encrypter("-CODEBOX");
+            Password = en.encrypt(Password);
+        } catch (NoSuchAlgorithmException | NoSuchPaddingException | IllegalBlockSizeException | BadPaddingException | InvalidKeyException ex) {
+            Logger.getLogger(ContentResource.class.getName()).log(Level.SEVERE, null, ex);
+        }
         if(newUser == null){
             newUser = new Usr(Username, Password);
             newUser.setPrivilege(false);

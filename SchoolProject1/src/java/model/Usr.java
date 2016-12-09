@@ -55,7 +55,7 @@ public class Usr implements Serializable {
     private String userName;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 20)
+    @Size(min = 1, max = 40)
     @Column(name = "Password")
     private String password;
     @JoinTable(name = "_friend_of_", joinColumns = {
