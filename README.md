@@ -11,3 +11,6 @@ In your Netbeans IDE, go to Team > Git > Clone. For Repository URL type https://
 On services tab in your Netbeans IDE, add a new Glassfish 4.1.1 server. Type in host: 10.114.32.59, domain: domain1 and leave user name and password blank at this point. Create your new server. Try to connect to server, it should ask for authentication. Type in User name: admin and password: T4js40t4js40. Your server should now be up and running. On you project settings, make sure you have correct server selected.
 
 On services tab, also create new data base connection. Select MySQL as a driver. For host type in 10.114.32.59, for database: SchoolProject and for User name: oscar and password: T4js40t4js40. Create your database, and it should be up and running. Now the project should deploy.
+
+#Presentation slides:
+https://docs.google.com/presentation/d/13DYIGk_x8zCOulU7n6K6gqTQI7n4hJAwXX-KZkiZSP0/edit#slide=id.g1a483a52e9_0_25
