@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package jsonRestful;
+package JsonRestful;
 
 import Security.Encrypter;
 import controller.SessionBean;
@@ -39,9 +39,9 @@ public class ContentResource {
     @Path("login")
     @POST
     //@Produces(MediaType.APPLICATION_JSON)
-    //creates a login finction that fetches the existing parameters of the username
+    //creates a login function that fetches the existing parameters of the username
     //and if the username and password matches the user logs in,
-    //if not, then wrong then nothing happens
+    //if not, then it's and wrong then nothing happens
     public Response login(@FormParam("Username")String Username, @FormParam("Password")String Password) throws URISyntaxException{
         Usr newUser = resource.getUserByName(Username);
         try {
@@ -56,7 +56,6 @@ public class ContentResource {
         }
         else{
             if(newUser.getPassword().equals(Password)){
-//                return newUser.getImgCollection();
                 java.net.URI location = new java.net.URI("../index.html?id=" + newUser.getId().toString());
                 return Response.temporaryRedirect(location).build();
             }
@@ -70,8 +69,8 @@ public class ContentResource {
     @POST
     //@Produces(MediaType.APPLICATION_JSON)
     //if user signs up for the first time, the system inserts the name and
-    // the assword to the data base
-    //passwords are encrypted while inserted in the database
+    //the password to the database
+    //passwords are encrypted while inserted to the database
     public /*Collection<Img>*/ Response signup(@FormParam("Username")String Username, @FormParam("Password")String Password) throws URISyntaxException{
         Usr newUser = resource.getUserByName(Username);
         try {
@@ -84,7 +83,7 @@ public class ContentResource {
             newUser = new Usr(Username, Password);
             newUser.setPrivilege(false);
             resource.insertUser(newUser);
-//            return newUser.getImgCollection();
+            //Redirect to index.html
             java.net.URI location = new java.net.URI("../index.html?id=" + newUser.getId().toString());
             return Response.temporaryRedirect(location).build();
         }

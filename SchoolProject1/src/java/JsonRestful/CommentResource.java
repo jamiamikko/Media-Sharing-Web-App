@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package jsonRestful;
+package JsonRestful;
 
 import controller.SessionBean;
 import java.net.URISyntaxException;
@@ -66,7 +66,7 @@ public class CommentResource {
         Img image = new Img(post);
         Feedback feedback = new Feedback(content, new Date(), usar, image);
         sessionBean.insertFeedback(feedback);
-        
+        //Redirect to index.html
         java.net.URI location = new java.net.URI("../index.html");
         return Response.temporaryRedirect(location).build();
         

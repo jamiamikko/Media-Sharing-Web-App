@@ -62,15 +62,17 @@ public class SessionBean {
         return getUserByName(name).getImgCollection();
     }
     
+    //Insert to database
     public void insertUser(Usr user){
         em.persist(user);
     }
     
+    //Update to database
     public void updateUser(Usr user){
         em.merge(user);
     }
     
-    //insert, update(?), delete, (select?) comments/feedback
+    //get comments of matching id
     public List<Feedback> getCommentForImage(int imgId){
         return em.createNamedQuery("Feedback.findAll").getResultList();
     }
@@ -81,9 +83,7 @@ public class SessionBean {
         return f;
     }
     
-    //insert, update, delete, select images
-    //gets image from database to the front-end 
-    //it fetches it from image class by id
+    //Return image by id
     public Img getImgByID(int id) {
         return em.find(Img.class, id);
     }
@@ -117,7 +117,7 @@ public class SessionBean {
         return (Img)em.createNamedQuery("Img.findOneByMaxFeedback").getSingleResult();
     }
     
-    //creates a group of images and goes through whitch one has the most comments
+    //creates a group of images and goes through which one has the most comments
     //if multiple images have same amount of comments, the function above activates
     //shows only one result
     public List<Feedback> getImgMostFeedback(){
@@ -136,7 +136,7 @@ public class SessionBean {
         return c;
     }
 
-    //udates the database
+    //udates to the database
     public void updateImg(Img c) {
         em.merge(c);
     }

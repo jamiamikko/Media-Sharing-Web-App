@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package jsonRestful;
+package JsonRestful;
 
 import controller.SessionBean;
 import static java.lang.System.console;
@@ -47,7 +47,7 @@ public class GenericResource {
     @Path("imageData")
     @Produces(MediaType.APPLICATION_JSON)
     public List<Img> getImages() {
-        //here call the find by id from the Stateless bea  
+        //here call the find by id from the Stateless bean  
         //generates a json object
         return sessionBean.getAllImages();
 
@@ -58,7 +58,7 @@ public class GenericResource {
     @Produces(MediaType.APPLICATION_JSON)
     //makes a list of all the comments
     public List<Feedback> getComments() {
-        //here call the find by id from the Stateless bea
+        //here call the find by id from the Stateless bean
         //generates a json object
         return sessionBean.getAllComments();
 
@@ -69,7 +69,7 @@ public class GenericResource {
     @Produces(MediaType.APPLICATION_JSON)
     //makes a list of all the users
     public List<Usr> getUsers() {
-        //here call the find by id from the Stateless bea
+        //here call the find by id from the Stateless bean
         //generates a json object
         return sessionBean.getAllUser();
 
