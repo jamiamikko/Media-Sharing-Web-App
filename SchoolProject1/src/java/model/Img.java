@@ -42,9 +42,7 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Img.findByName", query = "SELECT i FROM Img i WHERE i.name = :name")
     , @NamedQuery(name = "Img.findByDescription", query = "SELECT i FROM Img i WHERE i.description = :description")
     , @NamedQuery(name = "Img.findByUploadDate", query = "SELECT i FROM Img i WHERE i.uploadDate = :uploadDate")
-    //, @NamedQuery(name = "Img.findOneByMaxFeedback", query = "SELECT i FROM Img i ORDER BY (SELECT COUNT(*) FROM Feedback WHERE Feedback.OnContent = i.id) DESC LIMiT 1") })
-    //    , @NamedQuery(name = "Img.findOneByMaxFeedback", query = "SELECT i FROM Img i ORDER BY (SELECT COUNT(f.id) FROM Feedback f WHERE f.OnContent = i.id) as t DESC, LIMIT 1") })
-            , @NamedQuery(name = "Img.findOneByMaxFeedback", query = "SELECT i FROM Img i ORDER BY i.uploadDate") })
+    , @NamedQuery(name = "Img.findOneByMaxFeedback", query = "SELECT i FROM Img i ORDER BY i.uploadDate") })
 
 public class Img implements Serializable {
 

@@ -1,3 +1,5 @@
+//Function for menu action in mobile, class toggle
+
 function menuToggle() {
     var div = document.getElementById('main-nav');
 
@@ -10,6 +12,8 @@ function menuToggle() {
     }
 }
 
+//On login, replace login/sign up button with Logout button and action.
+
 function activateLogOut() {
     var loginButton = document.querySelector('#login');
 
@@ -20,6 +24,8 @@ function activateLogOut() {
 
     loginButton.setAttribute('onclick', 'logOut()');
 }
+
+//If user is not logged in, we hide all activities of normal users.
 
 function hideNaviFromGuest() {
     var naviItems = document.querySelectorAll('.navi-item');
@@ -33,6 +39,8 @@ function hideNaviFromGuest() {
 
 }
 
+//If user is not logged in, we hide all comments and form for uploading comments.
+
 function hideCommentsFromGuest() {
 
     var commentItem = document.querySelectorAll('.comments');
@@ -42,11 +50,14 @@ function hideCommentsFromGuest() {
     }
 }
 
+//Log our function, removes codeboxId cookie.
 
 function logOut() {
     var cookieName = 'codeboxId=';
     document.cookie = cookieName + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
 }
+
+//Get value of codeboxId from cookies.
 
 function getId() {
     var cookieName = 'codeboxId=';
@@ -65,7 +76,10 @@ function getId() {
     return "";
 }
 
-var showComments = function (element) {
+
+//Function for showing comments of selected post.
+
+var showComments = function(element) {
     if (element && element.target.getAttribute('class') == 'view-comment') {
 
         var hiddenComments = element.path[2].querySelector('.old-comments');
@@ -82,6 +96,8 @@ var showComments = function (element) {
     }
 }
 
+//Function for adding click events to all "Show commnets" links
+
 function addClickEvents() {
 
     var comments = document.querySelectorAll('.comments');
@@ -91,21 +107,29 @@ function addClickEvents() {
     }
 }
 
-var loadComments = function (json) {
+//Comments Json handling function
+
+var loadComments = function(json) {
 
     var output = '';
 
     var articles = document.querySelectorAll('article');
 
+    //Loop all article elements
+
     for (k = 0; k < articles.length; k++) {
-        //console.log(json);
+
+        //Loop all Json elements
         for (i = 0; i < json.length; i++) {
 
+            //If onContent id matches article ID, insert Json to article.
             if (json[i].onContent.id == articles[k].getAttribute('ID')) {
                 articles[k].querySelector('.old-comments').innerHTML += '<p> <span> ' + json[i].owner.userName + ': </span>' + json[i].content + '</p>';
             }
         }
     }
+
+    //If codeboxId cookie does not exist, hide all comments from guest.
 
     if (document.cookie.indexOf('codeboxId') == -1) {
         hideNaviFromGuest();
@@ -114,11 +138,13 @@ var loadComments = function (json) {
 
 }
 
-var loadContent = function (json) {
+//Content Json handling function. Also runs loadComments fetch function.
+var loadContent = function(json) {
 
     var output = '';
     var id;
 
+    //If cookie exists, get value with getId(). Else if location contains id parameter, we create new cookie.
     if (document.cookie.indexOf('codeboxId') > -1) {
         id = getId();
     } else if (window.location.href.indexOf('id') > -1) {
@@ -127,34 +153,39 @@ var loadContent = function (json) {
         document.cookie = 'codeboxId=' + id + '; expires=Thu, 18 Dec 2020 12:00:00 UTC';
     }
 
+    //Insert to main-content.
     for (i = 0; i < json.length; i++) {
         output += '<section class="container"><article id="' + json[i].id + '"><h3>' + json[i].name + '</h3><figure><img src = "' + json[i].url + '"alt = "' + json[i].name + '"><figcaption> ' + json[i].description + ' </figcaption> </figure> <section class = "comments"><p> <a class = "view-comment" onclick="showComments()"> View comments </a></p><div class = "old-comments hidden"></div> <form action="webresources/Commenting/insert" method="post"> <div class = "new-comment"><input type="hidden" name="userId" value="' + id + '"><input type="hidden" name="postId" value="' + json[i].id + '"><textarea name="content" placeholder = "Write comment"> </textarea> <button type = "submit"class = "green-button"> Send </button> </div> </form> </section> </article> </section>';
     }
 
     document.querySelector('.main-content').innerHTML = output;
 
-
+    //Add click events to "Show comments" links
     addClickEvents();
 
-    fetch('http://10.114.32.59:8080/SchoolProject1/webresources/generic/commentData').then(function (response) {
+    //Fetch comments Json and run loadComments().
+
+    fetch('http://10.114.32.59:8080/SchoolProject1/webresources/generic/commentData').then(function(response) {
         var contentType = response.headers.get("content-type");
 
         if (contentType && contentType.indexOf("application/json") !== -1) {
 
-            return response.json().then(function (newJson) {
+            return response.json().then(function(newJson) {
                 loadComments(newJson);
             });
 
-        } else {
-            console.log("Oops, we haven't got JSON!");
         }
 
     });
 }
 
-var loadUsers = function (json) {
+//Users Json handling function, for both index page and profile page.
+
+var loadUsers = function(json) {
     var output = '';
     var id;
+
+    //If cookie exists, get value with getId(). Else if location contains id parameter, we create new cookie.
 
     if (document.cookie.indexOf('codeboxId') > -1) {
         id = getId();
@@ -163,6 +194,7 @@ var loadUsers = function (json) {
         document.cookie = 'codeboxId=' + id + '; expires=Thu, 18 Dec 2020 12:00:00 UTC';
     }
 
+    //If id exits, handle Json.
     if (id) {
 
         var aside = document.querySelector('aside');
@@ -170,40 +202,40 @@ var loadUsers = function (json) {
 
         for (j = 0; j < json.length; j++) {
 
+            //If Json id is equal to id variable, insert data.
             if (json[j].id == id) {
-                
+                //If aside exits, insert to aside element
                 if (aside) {
                     aside.innerHTML = '<object class="profile-img-size" data="img/profile-icon.svg" type="image/svg+xml"></object><h2>' + json[j].userName + '</h2>';
+                    //If profile-wrapper exits, insert to profile-wrapper
                 } else if (profileWrapper) {
                     profileWrapper.innerHTML = '<div class="centering-wrapper"><h1>Profile</h1><object class="profile-img-size" data="img/profile-icon.svg" type="image/svg+xml"></object><h2>' + json[j].userName + '</h2><br></div>'
                 }
             }
         }
 
+        //Activate logging out functionalities, since user is logged in.
         activateLogOut();
-
 
     }
 }
 
-
+//Fetch imageData and userData, and run handling functions.
 function getJson() {
 
     var mainContent = document.querySelector('.main-content')
 
     if (mainContent) {
 
-        fetch('http://10.114.32.59:8080/SchoolProject1/webresources/generic/imageData').then(function (response) {
+        fetch('http://10.114.32.59:8080/SchoolProject1/webresources/generic/imageData').then(function(response) {
             var contentType = response.headers.get("content-type");
 
             if (contentType && contentType.indexOf("application/json") !== -1) {
 
-                return response.json().then(function (json) {
+                return response.json().then(function(json) {
                     loadContent(json);
                 });
 
-            } else {
-                console.log("Oops, we haven't got JSON!");
             }
 
         });
@@ -211,20 +243,20 @@ function getJson() {
     }
 
 
-    fetch('http://10.114.32.59:8080/SchoolProject1/webresources/generic/userData').then(function (response) {
+    fetch('http://10.114.32.59:8080/SchoolProject1/webresources/generic/userData').then(function(response) {
         var contentType = response.headers.get("content-type");
 
         if (contentType && contentType.indexOf("application/json") !== -1) {
 
-            return response.json().then(function (userJson) {
+            return response.json().then(function(userJson) {
                 loadUsers(userJson);
             });
 
-        } else {
-            console.log("Oops, we haven't got JSON!");
         }
 
     });
 
 }
+
+//Run getJson() function.
 getJson();

@@ -39,6 +39,9 @@ public class ContentResource {
     @Path("login")
     @POST
     //@Produces(MediaType.APPLICATION_JSON)
+    //creates a login finction that fetches the existing parameters of the username
+    //and if the username and password matches the user logs in,
+    //if not, then wrong then nothing happens
     public Response login(@FormParam("Username")String Username, @FormParam("Password")String Password) throws URISyntaxException{
         Usr newUser = resource.getUserByName(Username);
         try {
@@ -66,6 +69,9 @@ public class ContentResource {
     @Path("signup")
     @POST
     //@Produces(MediaType.APPLICATION_JSON)
+    //if user signs up for the first time, the system inserts the name and
+    // the assword to the data base
+    //passwords are encrypted while inserted in the database
     public /*Collection<Img>*/ Response signup(@FormParam("Username")String Username, @FormParam("Password")String Password) throws URISyntaxException{
         Usr newUser = resource.getUserByName(Username);
         try {

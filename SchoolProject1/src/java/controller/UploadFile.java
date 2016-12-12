@@ -45,26 +45,18 @@ public class UploadFile extends HttpServlet {
             throws ServletException, IOException {
         try {
             
-            //TODO Get the user (id) who is uploading this image..
-             //Usr owner = controller.getUserById(request.getParameter("userID"));
-
-//            Img newImg = new Img();
-//            newImg.setDescription(request.getParameter("Description"));
-//            newImg.setName(request.getParameter("Title"));
-//            newImg.setUrl("//10.114.32.59/img/" + request.getPart("filename").getSubmittedFileName());
-//
-//            String startDate = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss").format(new Date());
-//            DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss");
-//            Date myDate = formatter.parse(startDate);
-//            java.sql.Date sqlDate = new java.sql.Date(myDate.getTime());
-//            newImg.setUploadDate(sqlDate);
-
+            //gets the image from front-end and adds atributes in addition when inserted in database
+            //attributes: filename, Title, description, date and user id
             Img newImg = new Img("//10.114.32.59/img/" + request.getPart("filename").getSubmittedFileName(), request.getParameter("Title"), request.getParameter("Description"), new Date(Calendar.getInstance().getTimeInMillis()), new Usr(Integer.parseInt(request.getParameter("userId"))));
             
+            //calls insertImg from sessionBean and inserts the image to database
             controller.insertImg(newImg);
-            //upload(request);
+
+            //inserts the image to server
             request.getPart("filename").write(request.getPart("filename").getSubmittedFileName());
+            //shows the image in front-end
             response.sendRedirect("index.html");
+            //catches all the errors and shows them in the log
         } catch (Exception pokemon) {
             java.util.logging.Logger.getLogger(UploadFile.class.getName()).log(Level.SEVERE, null, pokemon);
         }

@@ -8,7 +8,6 @@ package model;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
-import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -80,14 +79,14 @@ public class Feedback implements Serializable {
     public Feedback(Integer id) {
         this.id = id;
     }
-
-    public Feedback(Integer id, String content, Date uploadDate) {
-        this.id = id;
+    
+    public Feedback(String content, Date uploadDate) {
         this.content = content;
         this.uploadDate = uploadDate;
     }
-
-    public Feedback(String content, Date uploadDate) {
+    
+    public Feedback(Integer id, String content, Date uploadDate) {
+        this.id = id;
         this.content = content;
         this.uploadDate = uploadDate;
     }
