@@ -15,6 +15,7 @@ import javax.ws.rs.ext.Provider;
 public class RestResponseFilter implements ContainerResponseFilter{
 
 @Override
+    //fixes cross domain issue
     public void filter(ContainerRequestContext requestContext, ContainerResponseContext responseContext) throws IOException{
         responseContext.getHeaders().putSingle("Access-Control-Allow-Origin", "*");
         responseContext.getHeaders().putSingle("Access-Control-Allow-Credentials", "true");

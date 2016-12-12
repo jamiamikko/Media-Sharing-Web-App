@@ -47,7 +47,8 @@ public class GenericResource {
     @Path("imageData")
     @Produces(MediaType.APPLICATION_JSON)
     public List<Img> getImages() {
-        //here call the find by id from the Stateless bea        
+        //here call the find by id from the Stateless bea  
+        //generates a json object
         return sessionBean.getAllImages();
 
     }
@@ -55,8 +56,10 @@ public class GenericResource {
     @GET
     @Path("commentData")
     @Produces(MediaType.APPLICATION_JSON)
+    //makes a list of all the comments
     public List<Feedback> getComments() {
-        //here call the find by id from the Stateless bea        
+        //here call the find by id from the Stateless bea
+        //generates a json object
         return sessionBean.getAllComments();
 
     }
@@ -64,8 +67,10 @@ public class GenericResource {
     @GET
     @Path("userData")
     @Produces(MediaType.APPLICATION_JSON)
+    //makes a list of all the users
     public List<Usr> getUsers() {
-        //here call the find by id from the Stateless bea        
+        //here call the find by id from the Stateless bea
+        //generates a json object
         return sessionBean.getAllUser();
 
     }
@@ -73,7 +78,9 @@ public class GenericResource {
     @GET
     @Path("topComments")
     @Produces(MediaType.APPLICATION_JSON)
+    
     public List<Feedback> hello() {
+        //generates a json object
         return sessionBean.getImgMostFeedback();
     }
     
@@ -81,31 +88,37 @@ public class GenericResource {
     @Path("topUser")
     @Produces(MediaType.APPLICATION_JSON)
     public List<Feedback> hello2() {
+        //generates a json object
         return sessionBean.getUserMostFeedback();
     }
 
     @POST()
     @Path("deleteImage")
+    //makes it possible to delete images
     public Response deleteImage(@FormParam("id") int id) throws URISyntaxException {
         
+        //generates a json object
         List<Feedback> feedbackList = sessionBean.getAllComments();
-        
+        //for the image to be deleted the comments need to go as well
         for(Feedback feedback : feedbackList) {
             if (feedback.getOnContent().equals(id)) {
                 sessionBean.deleteFeedback(feedback);
             }
         }
-        
+        //removes the image
         sessionBean.deleteImage(sessionBean.getImgByID(id));
+        //redirects back to the admin page
         java.net.URI location = new java.net.URI("../admin/admin.html");
         return Response.temporaryRedirect(location).build();
     }
 
     @POST()
     @Path("deleteUser")
+    //makes it possible to delete users
     public Response deleteUser(@FormParam("id") int id) throws URISyntaxException {
-        //TODO CLEAN THAT!!!!!!!!!!!!
+        ////generates a json object
         sessionBean.deleteUser(sessionBean.getUserById(id));
+        //redirects back to the admin page
         java.net.URI location = new java.net.URI("../admin/admin.html");
         return Response.temporaryRedirect(location).build();
     }

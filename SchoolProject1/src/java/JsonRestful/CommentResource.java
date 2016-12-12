@@ -56,6 +56,9 @@ public class CommentResource {
      * PUT method for updating or creating an instance of CommentResource
      * @param content representation for the resource
      */
+    //create an insert function that inserts feedback to the data base
+    //the functin fetches the data of the image and the commentor and adds
+    //the date to the comment in the database.
     @POST
     @Path("insert")
     public Response insert(@FormParam("content")String content, @FormParam("userId")int user, @FormParam("postId")int post) throws URISyntaxException {
